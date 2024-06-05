@@ -8,7 +8,7 @@ class CustomerMainForm extends JFrame{
 	
 	private AddCustomerForm addCustomerForm;
 	private ViewCustomerForm viewCustomerForm;
-	
+	private updateCustomer updateCustomer;
 	private JButton btnAddCustomer;	
 	private JButton btnSearchCustomer;	
 	private JButton btnDeleteCustomer;	
@@ -22,10 +22,10 @@ class CustomerMainForm extends JFrame{
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setLocationRelativeTo(null);
 		
- // ===================Heading=====================
- JLabel JHEading = new JLabel("Home Page", JLabel.CENTER);
- JHEading.setFont(new Font("", 1, 30));
- add("North", JHEading);
+		// ===================Heading=====================
+		JLabel JHEading = new JLabel("Home Page", JLabel.CENTER);
+		JHEading.setFont(new Font("", 1, 30));
+		add("North", JHEading);
 
 
 		JPanel buttonPanel=new JPanel(new GridLayout(5,1));
@@ -36,6 +36,7 @@ class CustomerMainForm extends JFrame{
 			public void actionPerformed(ActionEvent evt){
 				if(addCustomerForm==null){
 					addCustomerForm=new AddCustomerForm();
+					
 				}
 				addCustomerForm.setVisible(true);
 			}
@@ -45,10 +46,17 @@ class CustomerMainForm extends JFrame{
         buttonPanel.add(addcoustomerPanel);
 	  // ================================================================
 
-      btnUpdateCustomer = new JButton("Update Contact");
-      btnUpdateCustomer.setFont(new Font("", 1, 15));
-
+		btnUpdateCustomer = new JButton("Update Contact");
+		btnUpdateCustomer.setFont(new Font("", 1, 15));
         JPanel addupdatePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		btnUpdateCustomer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				if(viewCustomerForm==null){
+					updateCustomer=new updateCustomer();
+				}
+				updateCustomer.setVisible(true);
+			}
+		});
         addupdatePanel.add(btnUpdateCustomer);
         buttonPanel.add(addupdatePanel);
         // ================================================================

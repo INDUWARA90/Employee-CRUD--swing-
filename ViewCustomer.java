@@ -37,7 +37,7 @@ class ViewCustomerForm extends JFrame{
 			public void actionPerformed(ActionEvent evt){
 				for(int i=0; i<CustomerMainForm.customerList.size(); i++){
 					Customer customer=CustomerMainForm.customerList.get(i);
-					Object[] rowData={customer.getContactID(), customer.getName(),customer.getCompany(),customer.getSalary()};
+					Object[] rowData={customer.getContactID(), customer.getName(),customer.getPhoneNumber(),customer.getCompany(),customer.getSalary(),customer.getBDay()};
 					dtm.addRow(rowData);
 				}
 			}

@@ -74,7 +74,19 @@ class Customer {
 
 class customerList {
     Node start;
-    public int nav=0;
+  
+    public String createContactID() {
+        String ContactID = "";
+        int temp = EmployeeList.size();
+        ContactID = "C00" + (temp + 1);
+        if (temp <= 8) {
+            ContactID = "C00" + 00 + (temp + 1);
+        }
+        if (temp >= 99) {
+            ContactID = "C0" + (temp + 1);
+        }
+        return ContactID;
+    }
      // ----------------------------object Add method-------------------------------
     public void add(Customer Customer) {
         Node n1 = new Node(Customer);
@@ -269,5 +281,6 @@ class customerList {
             this.customer = Customer;
         }
     }
+    
 
 }

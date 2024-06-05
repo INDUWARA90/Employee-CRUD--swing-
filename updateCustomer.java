@@ -2,64 +2,89 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class AddCustomerForm extends JFrame {
-	private JLabel titleLabel;
-
-	private JButton btnAdd;
+class updateCustomer extends JFrame{
+    private JButton btnAdd;
 	private JButton btnCancel;
 	private JButton btnGotoHome;
+    private JButton Serach;
 
 	private JLabel ContactID, Name, PhoneNumber, Company, Salary, BDay;
 
+    
 	private JTextField TxTContactID, TxTName, TxTPhoneNumber, TxTCompany, TxTSalary, TxTBDay;
 
-	AddCustomerForm() {
-		setSize(500, 400);
-		setTitle("Add Customer Form");
-		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-		setLocationRelativeTo(null);
+    private JTextField Searchbox;
+    updateCustomer(){
+    setSize(600, 550);
+    setTitle("Update Customer Form");
+    setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+    setLocationRelativeTo(null);  
 
-		titleLabel = new JLabel("Add Customer Form");
+        JPanel HeadingCountainner = new JPanel(new GridLayout(2, 0));
+
+        JLabel titleLabel = new JLabel("UPDATE CONTACT");
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("", 1, 30));
-		add("North", titleLabel);
 
-		// ===================================Lables========================================
-		JPanel labelPanel = new JPanel(new GridLayout(8, 1));
+        HeadingCountainner.add(titleLabel);
+    
+        JPanel labelPanel1 = new JPanel(new GridLayout(1, 2));
 
-		ContactID = new JLabel("ContactID");
-		ContactID.setFont(new Font("", 1, 20));
-		labelPanel.add(ContactID);
+    // ===================================Lables========================================
+		Searchbox=new JTextField(15);
+        Searchbox.setFont(new Font("", 1, 20));
+		JPanel SerachboxPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        SerachboxPanel.add(Searchbox);
+        labelPanel1.add(SerachboxPanel);
 
-		Name = new JLabel("Name");
-		Name.setFont(new Font("", 1, 20));
-		labelPanel.add(Name);
+        Serach=new JButton("Search");
+        JPanel SerachPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        Serach.setFont(new Font("", 1, 20));
+		SerachPanel.add(Serach);
+        labelPanel1.add(SerachPanel);
 
-		PhoneNumber = new JLabel("Contact Number");
-		PhoneNumber.setFont(new Font("", 1, 20));
-		labelPanel.add(PhoneNumber);
+        add(labelPanel1);
 
-		Company = new JLabel("Company Name");
-		Company.setFont(new Font("", 1, 20));
-		labelPanel.add(Company);
+        HeadingCountainner.add(labelPanel1);
+        add("North",HeadingCountainner);
+// ===================================Lables========================================
 
-		Salary = new JLabel("Salary");
-		Salary.setFont(new Font("", 1, 20));
-		labelPanel.add(Salary);
+// ===================================Lables========================================
+JPanel labelPanel = new JPanel(new GridLayout(8, 1));
 
-		BDay = new JLabel("BirthDay");
-		BDay.setFont(new Font("", 1, 20));
-		labelPanel.add(BDay);
-		
-		BDay = new JLabel("");
-		BDay.setFont(new Font("", 1, 20));
-		labelPanel.add(BDay);
+ContactID = new JLabel("ContactID");
+ContactID.setFont(new Font("", 1, 20));
+labelPanel.add(ContactID);
 
-		BDay = new JLabel("");
-		BDay.setFont(new Font("", 1, 20));
-		labelPanel.add(BDay);
+Name = new JLabel("Name");
+Name.setFont(new Font("", 1, 20));
+labelPanel.add(Name);
 
-		add("West", labelPanel);
+PhoneNumber = new JLabel("Contact Number");
+PhoneNumber.setFont(new Font("", 1, 20));
+labelPanel.add(PhoneNumber);
+
+Company = new JLabel("Company Name");
+Company.setFont(new Font("", 1, 20));
+labelPanel.add(Company);
+
+Salary = new JLabel("Salary");
+Salary.setFont(new Font("", 1, 20));
+labelPanel.add(Salary);
+
+BDay = new JLabel("BirthDay");
+BDay.setFont(new Font("", 1, 20));
+labelPanel.add(BDay);
+
+BDay = new JLabel("");
+BDay.setFont(new Font("", 1, 20));
+labelPanel.add(BDay);
+
+BDay = new JLabel("");
+BDay.setFont(new Font("", 1, 20));
+labelPanel.add(BDay);
+
+add("West", labelPanel);
 
 		// ===================================Text Feilds========================================
 		JPanel textPanel = new JPanel(new GridLayout(8, 1));
@@ -145,12 +170,10 @@ class AddCustomerForm extends JFrame {
 	
 		btnGotoHome = new JButton("Back To HomePage");
 		btnGotoHome.setFont(new Font("", 1, 20));
-		btnGotoHome.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				AddCustomerForm.this.dispose();
-			}
-		});
+		
 		buttonPanel1.add(btnGotoHome);
 		textPanel.add(buttonPanel1);
-	}
+
+
+    }
 }
