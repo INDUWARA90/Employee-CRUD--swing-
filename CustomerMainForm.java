@@ -9,6 +9,8 @@ class CustomerMainForm extends JFrame{
 	private AddCustomerForm addCustomerForm;
 	private ViewCustomerForm viewCustomerForm;
 	private updateCustomer updateCustomer;
+	private SearchForm SearchForm;
+
 	private JButton btnAddCustomer;	
 	private JButton btnSearchCustomer;	
 	private JButton btnDeleteCustomer;	
@@ -64,6 +66,14 @@ class CustomerMainForm extends JFrame{
         btnSearchCustomer = new JButton("Search Contact");
         btnSearchCustomer.setFont(new Font("", 1, 15));
         JPanel addsearchPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		btnSearchCustomer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				if(viewCustomerForm==null){
+					SearchForm=new SearchForm();
+				}
+				SearchForm.setVisible(true);
+			}
+		});
         addsearchPanel.add(btnSearchCustomer);
         buttonPanel.add(addsearchPanel);
         // ================================================================

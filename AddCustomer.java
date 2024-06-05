@@ -120,6 +120,10 @@ class AddCustomerForm extends JFrame {
 				Customer customer = new Customer(id, name, PhoneNumber, Company, birthday, salary);
 				CustomerMainForm.customerList.add(customer);
 
+				JFrame Jmassage=new JFrame();
+				JOptionPane.showMessageDialog(Jmassage,"Contact Saved Successfully....");   
+
+
 			}
 		});
 
@@ -148,6 +152,12 @@ class AddCustomerForm extends JFrame {
 		btnGotoHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				AddCustomerForm.this.dispose();
+				TxTBDay.setText("");
+				TxTCompany.setText("");
+				TxTContactID.setText("");
+				TxTName.setText("");
+				TxTPhoneNumber.setText("");
+				TxTSalary.setText("");
 			}
 		});
 		buttonPanel1.add(btnGotoHome);
