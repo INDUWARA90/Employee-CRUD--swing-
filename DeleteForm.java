@@ -3,20 +3,18 @@ import java.awt.*;
 import java.awt.event.*;
 
 class DeleteForm extends JFrame{
-    private JButton btnAdd;
-	private JButton btnCancel;
-	private JButton btnGotoHome;
-    private JButton Serach;
+	
+	//======================Create Jbuttons==============================
+    private JButton btndelete,btnCancel,btnGotoHome,Serach;
 
+	//======================Create JLables==============================
 	private JLabel ContactID, Name, PhoneNumber, Company, Salary, BDay;
 	
-	
-				
+	//======================Create JTextFiled==============================
+	private JTextField TxTContactID, TxTName, TxTPhoneNumber, TxTCompany, TxTSalary,TxTBDay,Searchbox;
     
-	private JTextField TxTContactID, TxTName, TxTPhoneNumber, TxTCompany, TxTSalary, TxTBDay;
-
-    private JTextField Searchbox;
-    DeleteForm(){
+	//======================Constructer==============================
+	DeleteForm(){
     setSize(600, 550);
     setTitle("Update Customer Form");
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -32,7 +30,7 @@ class DeleteForm extends JFrame{
     
         JPanel labelPanel1 = new JPanel(new GridLayout(1, 2));
 
-    // ===================================Lables========================================
+    	// ================================Search Box======================================
 		Searchbox=new JTextField(15);
         Searchbox.setFont(new Font("", 1, 20));
 		JPanel SerachboxPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -44,14 +42,13 @@ class DeleteForm extends JFrame{
 				TxTName.setVisible(true);
 				TxTPhoneNumber.setVisible(true);
 				TxTSalary.setVisible(true);
-				
-			 System.out.print(CustomerMainForm.customerList.searchByNameOrPhoneNumber(Searchbox.getText()));
-
+		
 			}
 		});
 		SerachboxPanel.add(Searchbox);
 		labelPanel1.add(SerachboxPanel);
 
+		//======================Search button==============================
         Serach=new JButton("Search");
         JPanel SerachPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         Serach.setFont(new Font("", 1, 20));
@@ -94,9 +91,8 @@ class DeleteForm extends JFrame{
 
         HeadingCountainner.add(labelPanel1);
         add("North",HeadingCountainner);
-// ===================================Lables========================================
 
-// ===================================Lables========================================
+		// ===================================Lables========================================
 		JPanel labelPanel = new JPanel(new GridLayout(8, 1));
 
 		ContactID = new JLabel("ContactID");
@@ -135,8 +131,10 @@ class DeleteForm extends JFrame{
 		add("West", labelPanel);
 
 		// ===================================Text Feilds========================================
-		JPanel textPanel = new JPanel(new GridLayout(8, 1));
-		// ===========================================================================
+		
+			JPanel textPanel = new JPanel(new GridLayout(8, 1));
+		
+		//======================ContactID TextF==============================
 		TxTContactID = new JTextField(6);
 		TxTContactID.setFont(new Font("", 1, 20));
 		JPanel contactIDTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -145,7 +143,9 @@ class DeleteForm extends JFrame{
 		TxTContactID.setVisible(false);
 
 		textPanel.add(contactIDTextPanel);
-		// ===========================================================================
+
+
+		//======================Name TextF==============================
 		TxTName = new JTextField(15);
 		TxTName.setFont(new Font("", 1, 20));
 		JPanel nameTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -154,7 +154,9 @@ class DeleteForm extends JFrame{
 
 		nameTextPanel.add(TxTName);
 		textPanel.add(nameTextPanel);
-		// ===========================================================================
+
+
+		//======================Phone Number TextF==============================
 		TxTPhoneNumber = new JTextField(15);
 		TxTPhoneNumber.setFont(new Font("", 1, 20));
 		JPanel phonenumberTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -163,7 +165,9 @@ class DeleteForm extends JFrame{
 
 		phonenumberTextPanel.add(TxTPhoneNumber);
 		textPanel.add(phonenumberTextPanel);
-		// ===========================================================================
+
+
+		//======================Company Name TextF==============================
 		TxTCompany = new JTextField(15);
 		TxTCompany.setFont(new Font("", 1, 20));
 		JPanel addressTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -173,7 +177,8 @@ class DeleteForm extends JFrame{
 		addressTextPanel.add(TxTCompany);
 		textPanel.add(addressTextPanel);
 
-		// ===========================================================================
+		
+		//======================Salary TextF==============================
 		TxTSalary = new JTextField(10);
 		TxTSalary.setFont(new Font("", 1, 20));
 		JPanel salaryTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -182,7 +187,9 @@ class DeleteForm extends JFrame{
 
 		salaryTextPanel.add(TxTSalary);
 		textPanel.add(salaryTextPanel);
-		// ===========================================================================
+
+
+		//======================BirthDay TextF==============================
 		TxTBDay = new JTextField(10);
 		TxTBDay.setFont(new Font("", 1, 20));
 		JPanel BDayTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -193,14 +200,16 @@ class DeleteForm extends JFrame{
 		textPanel.add(BDayTextPanel);
 
 
-						add("Center", textPanel);
+			add("Center", textPanel);
 
-// ===================================Buttons========================================
-		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		// ===================================Buttons========================================
+		
+			JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
-		btnAdd = new JButton("Delete Contact");
-		btnAdd.setFont(new Font("", 1, 20));
-		btnAdd.addActionListener(new ActionListener() {
+		//======================Delete Buttons==============================	
+		btndelete = new JButton("Delete Contact");
+		btndelete.setFont(new Font("", 1, 20));
+		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				int index=CustomerMainForm.customerList.searchByNameOrPhoneNumber(Searchbox.getText());
 				if (index!=-1) {	
@@ -217,8 +226,9 @@ class DeleteForm extends JFrame{
 			}
 		});
 
-		buttonPanel.add(btnAdd);
+		buttonPanel.add(btndelete);
 
+		//======================Cancel Buttons==============================	
 		btnCancel = new JButton("Cancel");
 		btnCancel.setFont(new Font("", 1, 20));
 		btnCancel.addActionListener(new ActionListener() {
@@ -234,9 +244,10 @@ class DeleteForm extends JFrame{
 		buttonPanel.add(btnCancel);
 		textPanel.add(buttonPanel);
 		
-
 		JPanel buttonPanel1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 	
+
+		//======================Back To Home Buttons==============================	
 		btnGotoHome = new JButton("Back To HomePage");
 		btnGotoHome.setFont(new Font("", 1, 20));
 		btnGotoHome.addActionListener(new ActionListener() {
@@ -250,7 +261,8 @@ class DeleteForm extends JFrame{
 				TxTSalary.setText("");
 
 			}
-		});		buttonPanel1.add(btnGotoHome);
+		});		
+		buttonPanel1.add(btnGotoHome);
 		textPanel.add(buttonPanel1);
 
 

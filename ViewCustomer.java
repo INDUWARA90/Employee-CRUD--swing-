@@ -5,12 +5,18 @@ import java.awt.event.*;
 import java.util.*;
 class ViewCustomerForm extends JFrame{
 
+	//======================Create Tables==============================	
 	private Table1 table1;
 	private Table2 table2;
 	private Table3 table3;
-	private JLabel titleLabel;
 	
-	private JButton btnListByName,btnListBySalary,btnListByBirthday,btnCancel; 
+	//======================Create Jlabel==============================	
+		private JLabel titleLabel;
+	
+	//======================Create JButtons==============================	
+		private JButton btnListByName,btnListBySalary,btnListByBirthday,btnCancel; 
+	
+	//======================Create Constructer==============================		
 	ViewCustomerForm(){
 		setSize(600,300);
 		setTitle("View Customer Form");
@@ -22,10 +28,11 @@ class ViewCustomerForm extends JFrame{
 		titleLabel.setFont(new Font("",1,30));
 		add("North",titleLabel);
 		
-	//===========================================================	 
+	//=================BUTTONS SECTION==============================	 
 		
 		JPanel Container=new JPanel(new GridLayout(3,0));
 
+		//======================Create List by Name JButtons==============================	
 		btnListByName=new JButton("List by Name");
 		 JPanel btnListByNamebuttonPanel=new JPanel();
 		 btnListByName.setFont(new Font("",1,20));
@@ -44,6 +51,7 @@ class ViewCustomerForm extends JFrame{
 		Container.add(btnListByNamebuttonPanel);
 		
 		
+		//======================Create List by Salary JButtons==============================	
 		btnListBySalary=new JButton("List by Salary");
 		JPanel btnListBySalarybuttonPanel=new JPanel();
 		btnListBySalary.setFont(new Font("",1,20));
@@ -60,7 +68,9 @@ class ViewCustomerForm extends JFrame{
 	   });
 	   btnListBySalarybuttonPanel.add(btnListBySalary);
 	   Container.add(btnListBySalarybuttonPanel);
-	   
+
+
+	   	//======================Create List by Birthday JButtons==============================	
 		 btnListByBirthday=new JButton("List by Birthday");
 		 JPanel btnListByBirthdaybuttonPanel=new JPanel();
 		 btnListByBirthday.setFont(new Font("",1,20));
@@ -81,7 +91,7 @@ class ViewCustomerForm extends JFrame{
 		add("Center",Container);
 		
 		
-		
+		//======================Create Cancel JButtons==============================	
 		btnCancel=new JButton("Cancel");
 		JPanel btnCancelPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		btnCancel.setFont(new Font("",1,18));
@@ -90,7 +100,7 @@ class ViewCustomerForm extends JFrame{
 	   		ViewCustomerForm.this.dispose();
 	   	}
 	   });
-	   btnCancelPanel.add(btnCancel);
+	   	btnCancelPanel.add(btnCancel);
 		add("South",btnCancelPanel);
 
 	}

@@ -3,22 +3,23 @@ import java.awt.*;
 import java.awt.event.*;
 
 class SearchForm extends JFrame{
-    private JButton btnAdd;
-	private JButton btnCancel;
-	private JButton btnGotoHome;
-    private JButton Serach;
-
+	//===================Create Jbutton=========================
+	private JButton btnGotoHome,Serach;
+	
+	//===================Create JLables=========================	
 	private JLabel ContactID, Name, PhoneNumber, Company, Salary, BDay;
-		
-	private JTextField TxTContactID, TxTName, TxTPhoneNumber, TxTCompany, TxTSalary, TxTBDay;
 
-    private JTextField Searchbox;
-    SearchForm(){
+	//===================Create JTextField=========================	
+	private JTextField TxTContactID, TxTName, TxTPhoneNumber, TxTCompany, TxTSalary, TxTBDay, Searchbox;
+    
+	//===================Constructer=========================	
+	SearchForm(){
     setSize(600, 500);
     setTitle("Search Customer Form");
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     setLocationRelativeTo(null);  
 
+		//===================Heading Section=========================	
         JPanel HeadingCountainner = new JPanel(new GridLayout(2, 0));
 
         JLabel titleLabel = new JLabel("SEARCH CONTACT");
@@ -29,7 +30,7 @@ class SearchForm extends JFrame{
     
         JPanel labelPanel1 = new JPanel(new GridLayout(1, 2));
 
-    // ===================================Lables========================================
+    	// ==============================Search Box========================================
 		Searchbox=new JTextField(15);
         Searchbox.setFont(new Font("", 1, 20));
 		JPanel SerachboxPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -49,6 +50,7 @@ class SearchForm extends JFrame{
 		SerachboxPanel.add(Searchbox);
 		labelPanel1.add(SerachboxPanel);
 
+		//===================Search Button=========================	
         Serach=new JButton("Search");
         JPanel SerachPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         Serach.setFont(new Font("", 1, 20));
@@ -99,10 +101,11 @@ class SearchForm extends JFrame{
 
         HeadingCountainner.add(labelPanel1);
         add("North",HeadingCountainner);
-// ===================================Lables========================================
 
-// ===================================Lables========================================
-        JPanel labelPanel = new JPanel(new GridLayout(8, 1));
+
+		// ===================================Lables========================================
+        
+			JPanel labelPanel = new JPanel(new GridLayout(8, 1));
 
         ContactID = new JLabel("ContactID");
         ContactID.setFont(new Font("", 1, 20));
@@ -139,8 +142,10 @@ class SearchForm extends JFrame{
         add("West", labelPanel);
 
 		// ===================================Text Feilds========================================
-		JPanel textPanel = new JPanel(new GridLayout(8, 1));
-		// ===========================================================================
+		
+			JPanel textPanel = new JPanel(new GridLayout(8, 1));
+		
+		// ==========================ContactID TEXTf========================================
 		TxTContactID = new JTextField(6);
 		TxTContactID.setFont(new Font("", 1, 20));
 		JPanel contactIDTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -149,7 +154,9 @@ class SearchForm extends JFrame{
 
 		TxTContactID.setVisible(false);
 		textPanel.add(contactIDTextPanel);
-		// ===========================================================================
+
+
+		// ==========================NAME TEXTf========================================
 		TxTName = new JTextField(15);
 		TxTName.setFont(new Font("", 1, 20));
 		JPanel nameTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -158,7 +165,9 @@ class SearchForm extends JFrame{
 
 		nameTextPanel.add(TxTName);
 		textPanel.add(nameTextPanel);
-		// ===========================================================================
+
+
+		// ==========================Phone Number TEXTf========================================
 		TxTPhoneNumber = new JTextField(15);
 		TxTPhoneNumber.setFont(new Font("", 1, 20));
 		JPanel phonenumberTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -167,7 +176,9 @@ class SearchForm extends JFrame{
 
 		phonenumberTextPanel.add(TxTPhoneNumber);
 		textPanel.add(phonenumberTextPanel);
-		// ===========================================================================
+
+
+		// ==========================Company Name TEXTf========================================
 		TxTCompany = new JTextField(15);
 		TxTCompany.setFont(new Font("", 1, 20));
 		JPanel addressTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -177,7 +188,8 @@ class SearchForm extends JFrame{
 		addressTextPanel.add(TxTCompany);
 		textPanel.add(addressTextPanel);
 
-		// ===========================================================================
+
+		// ==========================Salary TEXTf========================================
 		TxTSalary = new JTextField(10);
 		TxTSalary.setFont(new Font("", 1, 20));
 		JPanel salaryTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -186,7 +198,9 @@ class SearchForm extends JFrame{
 
 		salaryTextPanel.add(TxTSalary);
 		textPanel.add(salaryTextPanel);
-		// ===========================================================================
+		
+		
+		// ==========================BirthDay TEXTf========================================
 		TxTBDay = new JTextField(10);
 		TxTBDay.setFont(new Font("", 1, 20));
 		JPanel BDayTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -197,14 +211,14 @@ class SearchForm extends JFrame{
 		textPanel.add(BDayTextPanel);
 
 
-						add("Center", textPanel);
+			add("Center", textPanel);
 
-// ===================================Buttons========================================
+
+		// ===================================Buttons========================================
 		
+			JPanel buttonPanel1 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 
-
-		JPanel buttonPanel1 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-	
+		// ==========================Back To Homepage BUTTON========================================		
 		btnGotoHome = new JButton("Back To HomePage");
 		btnGotoHome.setFont(new Font("", 1, 20));
 		btnGotoHome.addActionListener(new ActionListener() {
@@ -218,7 +232,8 @@ class SearchForm extends JFrame{
 				TxTSalary.setText("");
 
 			}
-		});		buttonPanel1.add(btnGotoHome);
+		});		
+		buttonPanel1.add(btnGotoHome);
 		textPanel.add(buttonPanel1);
 
 

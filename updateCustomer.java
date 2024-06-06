@@ -3,25 +3,24 @@ import java.awt.*;
 import java.awt.event.*;
 
 class updateCustomer extends JFrame{
-    private JButton btnAdd;
-	private JButton btnCancel;
-	private JButton btnGotoHome;
-    private JButton Serach;
+	
+	//===================Create Buttons=========================
+	private JButton btnAdd,btnCancel,btnGotoHome,Serach;
 
+	//===================Create Lables=========================
 	private JLabel ContactID, Name, PhoneNumber, Company, Salary, BDay;
 	
-	
-				
-    
-	private JTextField TxTContactID, TxTName, TxTPhoneNumber, TxTCompany, TxTSalary, TxTBDay;
+	//===================Create TextFild=========================
+	private JTextField TxTContactID, TxTName, TxTPhoneNumber, TxTCompany, TxTSalary, TxTBDay,Searchbox;
 
-    private JTextField Searchbox;
+	//===================Constructer =========================
     updateCustomer(){
     setSize(600, 550);
     setTitle("Update Customer Form");
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     setLocationRelativeTo(null);  
 
+		//===================Heading Section=========================
         JPanel HeadingCountainner = new JPanel(new GridLayout(2, 0));
 
         JLabel titleLabel = new JLabel("UPDATE CONTACT");
@@ -32,7 +31,8 @@ class updateCustomer extends JFrame{
     
         JPanel labelPanel1 = new JPanel(new GridLayout(1, 2));
 
-    // ===================================Lables========================================
+    	
+		//===================SearchBox=========================
 		Searchbox=new JTextField(15);
         Searchbox.setFont(new Font("", 1, 20));
 		JPanel SerachboxPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -52,6 +52,8 @@ class updateCustomer extends JFrame{
 		SerachboxPanel.add(Searchbox);
 		labelPanel1.add(SerachboxPanel);
 
+
+		//===================Serach Button=========================
         Serach=new JButton("Search");
         JPanel SerachPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         Serach.setFont(new Font("", 1, 20));
@@ -81,12 +83,10 @@ class updateCustomer extends JFrame{
 				}else{
 					System.out.println("Not here");
 				}
-				
 
-				
 			}
 		});
-
+		
 		SerachPanel.add(Serach);
         labelPanel1.add(SerachPanel);
 
@@ -94,9 +94,8 @@ class updateCustomer extends JFrame{
 
         HeadingCountainner.add(labelPanel1);
         add("North",HeadingCountainner);
-// ===================================Lables========================================
 
-// ===================================Lables========================================
+		// ===================================Lables========================================
 		JPanel labelPanel = new JPanel(new GridLayout(8, 1));
 
 		ContactID = new JLabel("ContactID");
@@ -131,11 +130,13 @@ class updateCustomer extends JFrame{
 		BDay.setFont(new Font("", 1, 20));
 		labelPanel.add(BDay);
 
-add("West", labelPanel);
+			add("West", labelPanel);
 
 		// ===================================Text Feilds========================================
-		JPanel textPanel = new JPanel(new GridLayout(8, 1));
-		// ===========================================================================
+		
+			JPanel textPanel = new JPanel(new GridLayout(8, 1));
+		
+		//===================Contact ID TextF=========================
 		TxTContactID = new JTextField(6);
 		TxTContactID.setFont(new Font("", 1, 20));
 		JPanel contactIDTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -144,7 +145,9 @@ add("West", labelPanel);
 		TxTContactID.setVisible(false);
 
 		textPanel.add(contactIDTextPanel);
-		// ===========================================================================
+
+
+		//===================Name TextF=========================
 		TxTName = new JTextField(15);
 		TxTName.setFont(new Font("", 1, 20));
 		JPanel nameTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -153,7 +156,8 @@ add("West", labelPanel);
 
 		nameTextPanel.add(TxTName);
 		textPanel.add(nameTextPanel);
-		// ===========================================================================
+
+		//===================Phone Number TextF=========================
 		TxTPhoneNumber = new JTextField(15);
 		TxTPhoneNumber.setFont(new Font("", 1, 20));
 		JPanel phonenumberTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -162,7 +166,9 @@ add("West", labelPanel);
 
 		phonenumberTextPanel.add(TxTPhoneNumber);
 		textPanel.add(phonenumberTextPanel);
-		// ===========================================================================
+		
+		
+		//===================Company Name TextF=========================
 		TxTCompany = new JTextField(15);
 		TxTCompany.setFont(new Font("", 1, 20));
 		JPanel addressTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -172,7 +178,8 @@ add("West", labelPanel);
 		addressTextPanel.add(TxTCompany);
 		textPanel.add(addressTextPanel);
 
-		// ===========================================================================
+
+		//===================Salary TextF=========================
 		TxTSalary = new JTextField(10);
 		TxTSalary.setFont(new Font("", 1, 20));
 		JPanel salaryTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -181,7 +188,9 @@ add("West", labelPanel);
 
 		salaryTextPanel.add(TxTSalary);
 		textPanel.add(salaryTextPanel);
-		// ===========================================================================
+
+
+		//===================Birth Day TextF=========================
 		TxTBDay = new JTextField(10);
 		TxTBDay.setFont(new Font("", 1, 20));
 		JPanel BDayTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -192,11 +201,14 @@ add("West", labelPanel);
 		textPanel.add(BDayTextPanel);
 
 
-						add("Center", textPanel);
+			add("Center", textPanel);
 
-// ===================================Buttons========================================
+
+
+		// ===================================Buttons========================================
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
+		//===================Update Contact button=========================
 		btnAdd = new JButton("Update Contact");
 		btnAdd.setFont(new Font("", 1, 20));
 		btnAdd.addActionListener(new ActionListener() {
@@ -204,24 +216,29 @@ add("West", labelPanel);
 				int index=CustomerMainForm.customerList.searchByNameOrPhoneNumber(Searchbox.getText());
 				if (index!=-1) {	
 					String newName=TxTName.getText();
-					System.out.println(newName);
-					CustomerMainForm.customerList.updateCompanyName(index,newName);
-					System.out.println(CustomerMainForm.customerList.get(index).getName());
-
-					//======================================
+					String newCompanyName=TxTCompany.getText();
+					String newPhoneNumber=TxTPhoneNumber.getText();
+					double newSalary=Double.parseDouble(TxTSalary.getText());
+		
+					CustomerMainForm.customerList.updateName(index, newName);
+					CustomerMainForm.customerList.updateCompanyName(index,newCompanyName);
+					CustomerMainForm.customerList.updatePhoneNumber(index, newPhoneNumber);
+					CustomerMainForm.customerList.updateSalary(index, newSalary);
 					JFrame Jmassage=new JFrame();
                     JOptionPane.showMessageDialog(Jmassage,"Contact is Updated!");   
 				}else{
-					System.out.println("error");
+					
+					
 				}
 				
 				
 				
 			}
 		});
-
 		buttonPanel.add(btnAdd);
 
+
+		//===================Cancel button=========================
 		btnCancel = new JButton("Cancel");
 		btnCancel.setFont(new Font("", 1, 20));
 		btnCancel.addActionListener(new ActionListener() {
@@ -237,9 +254,10 @@ add("West", labelPanel);
 		buttonPanel.add(btnCancel);
 		textPanel.add(buttonPanel);
 		
-
 		JPanel buttonPanel1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 	
+
+		//===================Back To HomePage button=========================
 		btnGotoHome = new JButton("Back To HomePage");
 		btnGotoHome.setFont(new Font("", 1, 20));
 		btnGotoHome.addActionListener(new ActionListener() {
@@ -253,7 +271,9 @@ add("West", labelPanel);
 				TxTSalary.setText("");
 
 			}
-		});		buttonPanel1.add(btnGotoHome);
+		});		
+		
+		buttonPanel1.add(btnGotoHome);
 		textPanel.add(buttonPanel1);
 
 

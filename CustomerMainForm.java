@@ -4,20 +4,21 @@ import java.util.*;
 import java.awt.event.*;
 class CustomerMainForm extends JFrame{
 	
-	public static customerList customerList=new customerList();
+	//=============import customerlist To access================
 	
+	public static customerList customerList=new customerList();
+
+	//=============import Class========================
 	private AddCustomerForm addCustomerForm;
 	private ViewCustomerForm viewCustomerForm;
 	private updateCustomer updateCustomer;
 	private SearchForm SearchForm;
 	private DeleteForm DeleteForm;
-	private JButton btnAddCustomer;	
-	private JButton btnSearchCustomer;	
-	private JButton btnDeleteCustomer;	
-	private JButton btnUpdateCustomer;	
-	private JButton btnViewCustomer;	
-	private JButton btnExit;	
+
+	//=============Create JButtons========================
+	private JButton btnAddCustomer,btnSearchCustomer,btnDeleteCustomer,btnUpdateCustomer,btnViewCustomer,btnExit;	
 	
+	//=============Constructer========================
 	CustomerMainForm(){
 		setTitle("Customer Mangement System");
 		setSize(500,300);
@@ -30,8 +31,11 @@ class CustomerMainForm extends JFrame{
 		add("North", JHEading);
 
 
+		// ===================Heading Panel=====================
 		JPanel buttonPanel=new JPanel(new GridLayout(5,1));
 		
+
+		// ===================Add Contact button=====================
         btnAddCustomer = new JButton("Add New Contact");
 		btnAddCustomer.setFont(new Font("",1,15));
 		btnAddCustomer.addActionListener(new ActionListener(){
@@ -46,8 +50,9 @@ class CustomerMainForm extends JFrame{
 		JPanel addcoustomerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         addcoustomerPanel.add(btnAddCustomer);
         buttonPanel.add(addcoustomerPanel);
-	  // ================================================================
+	  
 
+		// ===================Update Contact button=====================
 		btnUpdateCustomer = new JButton("Update Contact");
 		btnUpdateCustomer.setFont(new Font("", 1, 15));
         JPanel addupdatePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -61,8 +66,9 @@ class CustomerMainForm extends JFrame{
 		});
         addupdatePanel.add(btnUpdateCustomer);
         buttonPanel.add(addupdatePanel);
-        // ================================================================
+        
 
+		// ===================Search Contact button=====================
         btnSearchCustomer = new JButton("Search Contact");
         btnSearchCustomer.setFont(new Font("", 1, 15));
         JPanel addsearchPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -76,7 +82,9 @@ class CustomerMainForm extends JFrame{
 		});
         addsearchPanel.add(btnSearchCustomer);
         buttonPanel.add(addsearchPanel);
-        // ================================================================
+        
+
+		// ===================Delete Contact button=====================
         btnDeleteCustomer = new JButton("Delete Contact");
         btnDeleteCustomer.setFont(new Font("", 1, 15));
         JPanel adddeletePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -90,8 +98,9 @@ class CustomerMainForm extends JFrame{
 		});
         adddeletePanel.add(btnDeleteCustomer);
         buttonPanel.add(adddeletePanel);
-      // ================================================================
-		
+      
+
+		// ===================View Contact button=====================
 		btnViewCustomer=new JButton("View Customer");
 		btnViewCustomer.setFont(new Font("",1,15));
 		buttonPanel.add(btnViewCustomer);
@@ -108,19 +117,22 @@ class CustomerMainForm extends JFrame{
         buttonPanel.add(addviewcoustomerPanel);
 		
         add("Center", buttonPanel);
-    // ==============================Exitbutton=======================================
-    btnExit = new JButton("Exit");
-    btnExit.setFont(new Font("", 1, 10));
-    JPanel Exitbutton = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-    btnExit.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent evt) {
-            System.exit(0);
-        }
-    });
-         Exitbutton.add(btnExit);
-         add("South", Exitbutton);
-	}
+  
 	
+		// ==============================Exit button=======================================
+		btnExit = new JButton("Exit");
+		btnExit.setFont(new Font("", 1, 10));
+		JPanel Exitbutton = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				System.exit(0);
+			}
+		});
+			Exitbutton.add(btnExit);
+			add("South", Exitbutton);
+		}
+		
+	// ===================MAIN METHOD=====================	
 	public static void main(String args[]){
 		new CustomerMainForm().setVisible(true);
 	}

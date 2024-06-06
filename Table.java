@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
-
+//===========================Table 01=========================
 class Table1 extends JFrame{
 	private CustomerMainForm customerMainForm;
 	ViewCustomerForm viewCustomerForm;
@@ -35,7 +35,7 @@ class Table1 extends JFrame{
 		add("Center",tablePane);
 	
 
-    	//===========================================================	 
+    //===========================================================	 
 		JPanel Container=new JPanel(new GridLayout(3,0));
 		
 		CustomerMainForm.customerList.Sort2();
@@ -65,10 +65,7 @@ class Table1 extends JFrame{
 
 
 
-
-
-
-
+//===========================Table 02=========================
 class Table2 extends JFrame{
 	static JTable tblCustomerDetails;
 	static DefaultTableModel dtm;
@@ -99,7 +96,7 @@ class Table2 extends JFrame{
 		
 
 
-    	//===========================================================	 
+    //===========================================================	 
 		JPanel Container=new JPanel(new GridLayout(3,0));
        
 		CustomerMainForm.customerList.Sort1();
@@ -126,10 +123,7 @@ class Table2 extends JFrame{
 
 
 
-
-
-
-
+//===========================Table 03=========================
 class Table3 extends JFrame{
 	static JTable tblCustomerDetails;
 	private DefaultTableModel dtm;
@@ -160,7 +154,7 @@ class Table3 extends JFrame{
 		
 
 
-    	//===========================================================	 
+    //===========================================================	 
 		JPanel Container=new JPanel(new GridLayout(3,0));
        
 		CustomerMainForm.customerList.sortingByBirthday();
