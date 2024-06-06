@@ -11,7 +11,7 @@ class AddCustomerForm extends JFrame {
 
 	// ===================Create buttons=====================
 	private JButton btnAdd,btnCancel,btnGotoHome;
-	private JTextField TxTContactID, TxTName, TxTPhoneNumber, TxTCompany, TxTSalary, TxTBDay;
+	private JTextField TxTName, TxTPhoneNumber, TxTCompany, TxTSalary, TxTBDay;
 
 	// ===================Constructer buttons=====================
 	AddCustomerForm() {
@@ -20,18 +20,26 @@ class AddCustomerForm extends JFrame {
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setLocationRelativeTo(null);
 
-		// ===================Create JHeading=====================
-		titleLabel = new JLabel("Add Customer Form");
+		//===================Heading Section=========================
+        JPanel HeadingCountainner = new JPanel(new GridLayout(2, 0));
+
+        JLabel titleLabel = new JLabel("ADD CONTACT");
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("", 1, 30));
-		add("North", titleLabel);
+
+		ContactID = new JLabel("Contact-ID-"+createContactID());
+		ContactID.setFont(new Font("", 1, 20));
+		add(ContactID);
+        
+		HeadingCountainner.add(titleLabel);
+		HeadingCountainner.add(ContactID);
+		add("North",HeadingCountainner);
+		
+     
 
 		// ===================================Create Lables========================================
-		JPanel labelPanel = new JPanel(new GridLayout(8, 1));
+		JPanel labelPanel = new JPanel(new GridLayout(7, 1));
 
-		ContactID = new JLabel("ContactID");
-		ContactID.setFont(new Font("", 1, 20));
-		labelPanel.add(ContactID);
 
 		Name = new JLabel("Name");
 		Name.setFont(new Font("", 1, 20));
@@ -66,16 +74,8 @@ class AddCustomerForm extends JFrame {
 
 		// ==================Text Feilds======================================
 		
-			JPanel textPanel = new JPanel(new GridLayout(8, 1));
+			JPanel textPanel = new JPanel(new GridLayout(7, 1));
 		
-		
-		// ===================Contact ID======================================
-		TxTContactID = new JTextField(6);
-		TxTContactID.setFont(new Font("", 1, 20));
-		JPanel contactIDTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		contactIDTextPanel.add(TxTContactID);
-		textPanel.add(contactIDTextPanel);
-
 
 		// ===================Name======================================
 		TxTName = new JTextField(15);
@@ -130,7 +130,7 @@ class AddCustomerForm extends JFrame {
 		btnAdd.setFont(new Font("", 1, 20));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				if (TxTContactID.getText().equals("") ||TxTName.getText().equals("") ||TxTPhoneNumber.getText().equals("") ||TxTCompany.getText().equals("") ||TxTSalary.getText().equals("") ||TxTBDay.getText().equals("") ) {
+				if (createContactID().equals("") ||TxTName.getText().equals("") ||TxTPhoneNumber.getText().equals("") ||TxTCompany.getText().equals("") ||TxTSalary.getText().equals("") ||TxTBDay.getText().equals("") ) {
 					JFrame Jmassage=new JFrame();
 					JOptionPane.showMessageDialog(Jmassage,"Please Enter Details ALL..");   
 
@@ -138,7 +138,6 @@ class AddCustomerForm extends JFrame {
 					//===============================Create Variables to store Textfilde values=====================================
 					JFrame massage=new JFrame();
 					double salary=0.0;
-					String id = TxTContactID.getText();
 					String name = TxTName.getText();
 					String PhoneNumber = "";
 					String Company = TxTCompany.getText();
@@ -166,8 +165,8 @@ class AddCustomerForm extends JFrame {
 
 
 					//===============================insert into database=====================================
-					if (validphonenumber(TxTPhoneNumber.getText()) && isValidSalary(Double.parseDouble(TxTSalary.getText())) && isValidBirthday(TxTBDay.getText()) && name!=null && id!=null && Company!= null ) {
-						Customer customer = new Customer(id, name, PhoneNumber, Company, birthday, salary);
+					if (validphonenumber(TxTPhoneNumber.getText()) && isValidSalary(Double.parseDouble(TxTSalary.getText())) && isValidBirthday(TxTBDay.getText()) && name!=null && createContactID()!=null && Company!= null ) {
+						Customer customer = new Customer(createContactID(), name, PhoneNumber, Company, birthday, salary);
 						CustomerMainForm.customerList.add(customer);
 						
 						JOptionPane.showMessageDialog(massage,"Contact Saved Successfully....");   
@@ -187,7 +186,6 @@ class AddCustomerForm extends JFrame {
 			public void actionPerformed(ActionEvent evt) {
 				TxTBDay.setText("");
 				TxTCompany.setText("");
-				TxTContactID.setText("");
 				TxTName.setText("");
 				TxTPhoneNumber.setText("");
 				TxTSalary.setText("");
@@ -206,7 +204,6 @@ class AddCustomerForm extends JFrame {
 				AddCustomerForm.this.dispose();
 				TxTBDay.setText("");
 				TxTCompany.setText("");
-				TxTContactID.setText("");
 				TxTName.setText("");
 				TxTPhoneNumber.setText("");
 				TxTSalary.setText("");
@@ -242,7 +239,7 @@ class AddCustomerForm extends JFrame {
 	
 		// --------------------------to valid Salary--------------------------------
 		public static boolean isValidSalary(double salary){
-			return salary>45;
+			return salary>0;
 		}
 		// --------------------------------to valid B'day----------------------------
 		public static boolean isValidBirthday(String BDay) {
@@ -292,4 +289,16 @@ class AddCustomerForm extends JFrame {
 			return true;
 		}
 	
+		public static String createContactID() {
+			String ContactID = "";
+			int temp = customerList.size();
+			ContactID = "C00" + (temp + 1);
+			if (temp <= 8) {
+				ContactID = "C00" + 00 + (temp + 1);
+			}
+			if (temp >= 99) {
+				ContactID = "C0" + (temp + 1);
+			}
+			return ContactID;
+		}
 }

@@ -81,7 +81,8 @@ class updateCustomer extends JFrame{
 					TxTSalary.setText(salary);
 
 				}else{
-					System.out.println("Not here");
+					JFrame Jmassage=new JFrame();
+					JOptionPane.showMessageDialog(Jmassage,"Contact is not in DataBase....");   
 				}
 
 			}
@@ -141,7 +142,8 @@ class updateCustomer extends JFrame{
 		TxTContactID.setFont(new Font("", 1, 20));
 		JPanel contactIDTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		contactIDTextPanel.add(TxTContactID);
-
+		TxTContactID.setEditable(false);
+		TxTContactID.setBackground(Color.white);
 		TxTContactID.setVisible(false);
 
 		textPanel.add(contactIDTextPanel);
@@ -225,9 +227,17 @@ class updateCustomer extends JFrame{
 					CustomerMainForm.customerList.updatePhoneNumber(index, newPhoneNumber);
 					CustomerMainForm.customerList.updateSalary(index, newSalary);
 					JFrame Jmassage=new JFrame();
-                    JOptionPane.showMessageDialog(Jmassage,"Contact is Updated!");   
+                    JOptionPane.showMessageDialog(Jmassage,"Contact is Updated!");
+					TxTBDay.setText("");
+					TxTCompany.setText("");
+					TxTContactID.setText("");
+					TxTName.setText("");
+					TxTPhoneNumber.setText("");
+					TxTSalary.setText("");
+					Searchbox.setText("");
 				}else{
-					
+					JFrame Jmassage=new JFrame();
+                    JOptionPane.showMessageDialog(Jmassage,"Contact is Updated Fail Try Again!");   
 					
 				}
 				
@@ -249,6 +259,7 @@ class updateCustomer extends JFrame{
 				TxTName.setText("");
 				TxTPhoneNumber.setText("");
 				TxTSalary.setText("");
+				Searchbox.setText("");
 			}
 		});
 		buttonPanel.add(btnCancel);
@@ -269,6 +280,14 @@ class updateCustomer extends JFrame{
 				TxTName.setText("");
 				TxTPhoneNumber.setText("");
 				TxTSalary.setText("");
+
+				
+				TxTBDay.setVisible(false);
+				TxTCompany.setVisible(false);
+				TxTContactID.setVisible(false);
+				TxTName.setVisible(false);
+				TxTPhoneNumber.setVisible(false);
+				TxTSalary.setVisible(false);
 
 			}
 		});		

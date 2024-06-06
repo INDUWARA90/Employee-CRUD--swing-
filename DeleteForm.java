@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -76,7 +78,8 @@ class DeleteForm extends JFrame{
 					TxTSalary.setText(salary);
 
 				}else{
-					System.out.println("Not here");
+					JFrame J=new JFrame();
+					JOptionPane.showMessageDialog(J,"Contact is not in database....");   
 				}
 				
 
@@ -216,11 +219,19 @@ class DeleteForm extends JFrame{
 					
 					CustomerMainForm.customerList.removeElement(index);
 					
-					//======================================
+					
+	
 					JFrame Jmassage=new JFrame();
-                    JOptionPane.showMessageDialog(Jmassage,"Contact is Deleted!");   
+                    JOptionPane.showMessageDialog(Jmassage,"Contact is Deleted!");  
+					TxTBDay.setText("");
+					TxTCompany.setText("");
+					TxTContactID.setText("");
+					TxTName.setText("");
+					TxTPhoneNumber.setText("");
+					TxTSalary.setText("");
 				}else{
-					System.out.println("error");
+					JFrame Jmassage=new JFrame();
+					JOptionPane.showMessageDialog(Jmassage,"Somthing Wrong Try Again!");  
 				}
 				
 			}
@@ -259,6 +270,14 @@ class DeleteForm extends JFrame{
 				TxTName.setText("");
 				TxTPhoneNumber.setText("");
 				TxTSalary.setText("");
+
+				
+				TxTBDay.setVisible(false);
+				TxTCompany.setVisible(false);
+				TxTContactID.setVisible(false);
+				TxTName.setVisible(false);
+				TxTPhoneNumber.setVisible(false);
+				TxTSalary.setVisible(false);
 
 			}
 		});		

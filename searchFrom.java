@@ -36,15 +36,7 @@ class SearchForm extends JFrame{
 		JPanel SerachboxPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         Searchbox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				TxTBDay.setVisible(true);
-				TxTCompany.setVisible(true);
-				TxTContactID.setVisible(true);
-				TxTName.setVisible(true);
-				TxTPhoneNumber.setVisible(true);
-				TxTSalary.setVisible(true);
 				
-			 System.out.print(CustomerMainForm.customerList.searchByNameOrPhoneNumber(Searchbox.getText()));
-
 			}
 		});
 		SerachboxPanel.add(Searchbox);
@@ -76,6 +68,24 @@ class SearchForm extends JFrame{
 					TxTName.setText(Name);
 					TxTPhoneNumber.setText(PhoneNumber);
 					TxTSalary.setText(salary);
+					
+					TxTContactID.setEditable(false);
+					TxTContactID.setBackground(Color.white);
+
+					TxTBDay.setEditable(false);
+					TxTBDay.setBackground(Color.white);
+
+					TxTCompany.setEditable(false);
+					TxTCompany.setBackground(Color.white);
+
+					TxTName.setEditable(false);
+					TxTName.setBackground(Color.white);
+
+					TxTPhoneNumber.setEditable(false);
+					TxTPhoneNumber.setBackground(Color.white);
+
+					TxTSalary.setEditable(false);
+					TxTSalary.setBackground(Color.white);
 
 				}else{
 					TxTBDay.setVisible(false);
@@ -230,6 +240,15 @@ class SearchForm extends JFrame{
 				TxTName.setText("");
 				TxTPhoneNumber.setText("");
 				TxTSalary.setText("");
+				Searchbox.setText("");
+
+					TxTBDay.setVisible(false);
+                    TxTCompany.setVisible(false);
+                    TxTContactID.setVisible(false);
+                    TxTName.setVisible(false);
+                    TxTPhoneNumber.setVisible(false);
+                    TxTSalary.setVisible(false);
+
 
 			}
 		});		

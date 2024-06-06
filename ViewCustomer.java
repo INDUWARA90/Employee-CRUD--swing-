@@ -104,4 +104,7 @@ class ViewCustomerForm extends JFrame{
 		add("South",btnCancelPanel);
 
 	}
+
+	//=====================Method Remove All Recodes=========================
+
 }
