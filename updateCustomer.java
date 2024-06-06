@@ -139,10 +139,10 @@ add("West", labelPanel);
 		TxTContactID = new JTextField(6);
 		TxTContactID.setFont(new Font("", 1, 20));
 		JPanel contactIDTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
 		contactIDTextPanel.add(TxTContactID);
 
 		TxTContactID.setVisible(false);
+
 		textPanel.add(contactIDTextPanel);
 		// ===========================================================================
 		TxTName = new JTextField(15);
@@ -203,9 +203,14 @@ add("West", labelPanel);
 			public void actionPerformed(ActionEvent evt) {
 				int index=CustomerMainForm.customerList.searchByNameOrPhoneNumber(Searchbox.getText());
 				if (index!=-1) {	
-					CustomerMainForm.customerList.get(index).setName(getName());
+					String newName=TxTName.getText();
+					System.out.println(newName);
+					CustomerMainForm.customerList.updateCompanyName(index,newName);
+					System.out.println(CustomerMainForm.customerList.get(index).getName());
+
 					//======================================
-					
+					JFrame Jmassage=new JFrame();
+                    JOptionPane.showMessageDialog(Jmassage,"Contact is Updated!");   
 				}else{
 					System.out.println("error");
 				}

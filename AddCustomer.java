@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -8,6 +10,8 @@ class AddCustomerForm extends JFrame {
 	private JButton btnAdd;
 	private JButton btnCancel;
 	private JButton btnGotoHome;
+
+	
 
 	private JLabel ContactID, Name, PhoneNumber, Company, Salary, BDay;
 
@@ -111,22 +115,28 @@ class AddCustomerForm extends JFrame {
 		btnAdd.setFont(new Font("", 1, 20));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				String id = TxTContactID.getText();
-				String name = TxTName.getText();
-				String PhoneNumber = TxTPhoneNumber.getText();
-				String Company = TxTCompany.getText();
-				double salary = Double.parseDouble(TxTSalary.getText());
-				String birthday = TxTBDay.getText();
-				Customer customer = new Customer(id, name, PhoneNumber, Company, birthday, salary);
-				CustomerMainForm.customerList.add(customer);
+				if (TxTContactID.getText().equals("") ||TxTName.getText().equals("") ||TxTPhoneNumber.getText().equals("") ||TxTCompany.getText().equals("") ||TxTSalary.getText().equals("") ||TxTBDay.getText().equals("") ) {
+					JFrame Jmassage=new JFrame();
+					JOptionPane.showMessageDialog(Jmassage,"Please Enter Details ALL..");   
 
-				JFrame Jmassage=new JFrame();
-				JOptionPane.showMessageDialog(Jmassage,"Contact Saved Successfully....");   
+				}else{
+					String id = TxTContactID.getText();
+					String name = TxTName.getText();
+					String PhoneNumber = TxTPhoneNumber.getText();
+					String Company = TxTCompany.getText();
+					double salary = Double.parseDouble(TxTSalary.getText());
+					String birthday = TxTBDay.getText();
+					Customer customer = new Customer(id, name, PhoneNumber, Company, birthday, salary);
+					CustomerMainForm.customerList.add(customer);
+					JFrame Jmassage=new JFrame();
+				    JOptionPane.showMessageDialog(Jmassage,"Contact Saved Successfully....");   
 
 
+				}
+				
 			}
 		});
-
+		
 		buttonPanel.add(btnAdd);
 
 		btnCancel = new JButton("Cancel");
