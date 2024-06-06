@@ -48,7 +48,7 @@ class SearchForm extends JFrame{
         Serach.setFont(new Font("", 1, 20));
 		Serach.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				int index=CustomerMainForm.customerList.searchByNameOrPhoneNumber(Searchbox.getText());
+				int index=DBConnection.getInstance().getCustomerList().searchByNameOrPhoneNumber(Searchbox.getText());
 				if (index!=-1) {
                     TxTBDay.setVisible(true);
                     TxTCompany.setVisible(true);
@@ -56,18 +56,19 @@ class SearchForm extends JFrame{
                     TxTName.setVisible(true);
                     TxTPhoneNumber.setVisible(true);
                     TxTSalary.setVisible(true);
-					String Contactid=CustomerMainForm.customerList.get(index).getContactID();
-					String Name=CustomerMainForm.customerList.get(index).getName();
-					String PhoneNumber=CustomerMainForm.customerList.get(index).getPhoneNumber();
-					String Company=CustomerMainForm.customerList.get(index).getCompany();
-					String birthday=CustomerMainForm.customerList.get(index).getBDay();
-					String salary = Double.toString(CustomerMainForm.customerList.get(index).getSalary());
+					String Contactid=DBConnection.getInstance().getCustomerList().get(index).getContactID();
+					String Name=DBConnection.getInstance().getCustomerList().get(index).getName();
+					String PhoneNumber=DBConnection.getInstance().getCustomerList().get(index).getPhoneNumber();
+					String Company=DBConnection.getInstance().getCustomerList().get(index).getCompany();
+					String birthday=DBConnection.getInstance().getCustomerList().get(index).getBDay();
+					String salary = Double.toString(DBConnection.getInstance().getCustomerList().get(index).getSalary());
 					TxTContactID.setText(Contactid);
 					TxTBDay.setText(birthday);
 					TxTCompany.setText(Company);
 					TxTName.setText(Name);
 					TxTPhoneNumber.setText(PhoneNumber);
 					TxTSalary.setText(salary);
+					
 					
 					TxTContactID.setEditable(false);
 					TxTContactID.setBackground(Color.white);

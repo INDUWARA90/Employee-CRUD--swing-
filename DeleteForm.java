@@ -62,20 +62,39 @@ class DeleteForm extends JFrame{
 				TxTName.setVisible(true);
 				TxTPhoneNumber.setVisible(true);
 				TxTSalary.setVisible(true);
-				int index=CustomerMainForm.customerList.searchByNameOrPhoneNumber(Searchbox.getText());
+				int index=DBConnection.getInstance().getCustomerList().searchByNameOrPhoneNumber(Searchbox.getText());
 				if (index!=-1) {
-					String Contactid=CustomerMainForm.customerList.get(index).getContactID();
-					String Name=CustomerMainForm.customerList.get(index).getName();
-					String PhoneNumber=CustomerMainForm.customerList.get(index).getPhoneNumber();
-					String Company=CustomerMainForm.customerList.get(index).getCompany();
-					String birthday=CustomerMainForm.customerList.get(index).getBDay();
-					String salary = Double.toString(CustomerMainForm.customerList.get(index).getSalary());
+					String Contactid=DBConnection.getInstance().getCustomerList().get(index).getContactID();
+					String Name=DBConnection.getInstance().getCustomerList().get(index).getName();
+					String PhoneNumber=DBConnection.getInstance().getCustomerList().get(index).getPhoneNumber();
+					String Company=DBConnection.getInstance().getCustomerList().get(index).getCompany();
+					String birthday=DBConnection.getInstance().getCustomerList().get(index).getBDay();
+					String salary = Double.toString(DBConnection.getInstance().getCustomerList().get(index).getSalary());
 					TxTContactID.setText(Contactid);
 					TxTBDay.setText(birthday);
 					TxTCompany.setText(Company);
 					TxTName.setText(Name);
 					TxTPhoneNumber.setText(PhoneNumber);
 					TxTSalary.setText(salary);
+
+					
+					TxTContactID.setEditable(false);
+					TxTContactID.setBackground(Color.white);
+
+					TxTBDay.setEditable(false);
+					TxTBDay.setBackground(Color.white);
+
+					TxTCompany.setEditable(false);
+					TxTCompany.setBackground(Color.white);
+
+					TxTName.setEditable(false);
+					TxTName.setBackground(Color.white);
+
+					TxTPhoneNumber.setEditable(false);
+					TxTPhoneNumber.setBackground(Color.white);
+
+					TxTSalary.setEditable(false);
+					TxTSalary.setBackground(Color.white);
 
 				}else{
 					JFrame J=new JFrame();
@@ -214,11 +233,11 @@ class DeleteForm extends JFrame{
 		btndelete.setFont(new Font("", 1, 20));
 		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				int index=CustomerMainForm.customerList.searchByNameOrPhoneNumber(Searchbox.getText());
+				int index=DBConnection.getInstance().getCustomerList().searchByNameOrPhoneNumber(Searchbox.getText());
 				if (index!=-1) {	
+
 					
-					CustomerMainForm.customerList.removeElement(index);
-					
+					DBConnection.getInstance().getCustomerList().removeElement(index);
 					
 	
 					JFrame Jmassage=new JFrame();
@@ -229,6 +248,7 @@ class DeleteForm extends JFrame{
 					TxTName.setText("");
 					TxTPhoneNumber.setText("");
 					TxTSalary.setText("");
+					Searchbox.setText("");
 				}else{
 					JFrame Jmassage=new JFrame();
 					JOptionPane.showMessageDialog(Jmassage,"Somthing Wrong Try Again!");  

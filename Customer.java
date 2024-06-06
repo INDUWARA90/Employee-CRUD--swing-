@@ -77,7 +77,7 @@ class customerList {
   
     public String createContactID() {
         String ContactID = "";
-        int temp = customerList.size();
+        int temp = size();
         ContactID = "C00" + (temp + 1);
         if (temp <= 8) {
             ContactID = "C00" + 00 + (temp + 1);
@@ -136,7 +136,7 @@ class customerList {
     }
 
     // ----------------------------size method-------------------------------
-    public static int size() {
+    public int size() {
         Node temp = start;
         int count = 0;
         while (temp != null) {
@@ -261,6 +261,6 @@ class customerList {
             this.customer = Customer;
         }
     }
-    
+
 
 }

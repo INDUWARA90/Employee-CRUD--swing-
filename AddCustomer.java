@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -27,7 +26,10 @@ class AddCustomerForm extends JFrame {
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("", 1, 30));
 
-		ContactID = new JLabel("Contact-ID-"+createContactID());
+			
+		
+		
+		ContactID = new JLabel("Contact-ID-"+DBConnection.getInstance().getCustomerList().createContactID());
 		ContactID.setFont(new Font("", 1, 20));
 		add(ContactID);
         
@@ -130,7 +132,7 @@ class AddCustomerForm extends JFrame {
 		btnAdd.setFont(new Font("", 1, 20));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				if (createContactID().equals("") ||TxTName.getText().equals("") ||TxTPhoneNumber.getText().equals("") ||TxTCompany.getText().equals("") ||TxTSalary.getText().equals("") ||TxTBDay.getText().equals("") ) {
+				if (DBConnection.getInstance().getCustomerList().createContactID().equals("") ||TxTName.getText().equals("") ||TxTPhoneNumber.getText().equals("") ||TxTCompany.getText().equals("") ||TxTSalary.getText().equals("") ||TxTBDay.getText().equals("") ) {
 					JFrame Jmassage=new JFrame();
 					JOptionPane.showMessageDialog(Jmassage,"Please Enter Details ALL..");   
 
@@ -165,19 +167,27 @@ class AddCustomerForm extends JFrame {
 
 
 					//===============================insert into database=====================================
-					if (validphonenumber(TxTPhoneNumber.getText()) && isValidSalary(Double.parseDouble(TxTSalary.getText())) && isValidBirthday(TxTBDay.getText()) && name!=null && createContactID()!=null && Company!= null ) {
-						Customer customer = new Customer(createContactID(), name, PhoneNumber, Company, birthday, salary);
-						CustomerMainForm.customerList.add(customer);
-						
-						JOptionPane.showMessageDialog(massage,"Contact Saved Successfully....");   
+					if (validphonenumber(TxTPhoneNumber.getText()) && isValidSalary(Double.parseDouble(TxTSalary.getText())) && isValidBirthday(TxTBDay.getText()) && name!=null && DBConnection.getInstance().getCustomerList().createContactID()!=null && Company!= null ) {
+						Customer customer = new Customer(DBConnection.getInstance().getCustomerList().createContactID(), name, PhoneNumber, Company, birthday, salary);
+						DBConnection.getInstance().getCustomerList().add(customer);
+
+						JOptionPane.showMessageDialog(massage,"Contact Saved Successfully...."); 
+						TxTBDay.setText("");
+						TxTCompany.setText("");
+						TxTName.setText("");
+						TxTPhoneNumber.setText("");
+						TxTSalary.setText("");
+					
+						System.out.println(DBConnection.getInstance().getCustomerList().createContactID());
+
 					}
+					
 
 				}
 				
 			}
 		});
 		buttonPanel.add(btnAdd);
-
 
 		// ===================CANCEL BUTTON======================================
 		btnCancel = new JButton("Cancel");
@@ -289,16 +299,5 @@ class AddCustomerForm extends JFrame {
 			return true;
 		}
 	
-		public static String createContactID() {
-			String ContactID = "";
-			int temp = customerList.size();
-			ContactID = "C00" + (temp + 1);
-			if (temp <= 8) {
-				ContactID = "C00" + 00 + (temp + 1);
-			}
-			if (temp >= 99) {
-				ContactID = "C0" + (temp + 1);
-			}
-			return ContactID;
-		}
+	
 }

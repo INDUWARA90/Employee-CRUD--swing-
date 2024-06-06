@@ -1,12 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
 import java.awt.event.*;
 class CustomerMainForm extends JFrame{
 	
 	//=============import customerlist To access================
 	
-	public static customerList customerList=new customerList();
+
 
 	//=============import Class========================
 	private AddCustomerForm addCustomerForm;

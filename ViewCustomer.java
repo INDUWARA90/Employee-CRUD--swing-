@@ -1,8 +1,6 @@
 import javax.swing.*;
-import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 class ViewCustomerForm extends JFrame{
 
 	//======================Create Tables==============================	
@@ -38,7 +36,7 @@ class ViewCustomerForm extends JFrame{
 		 btnListByName.setFont(new Font("",1,20));
 		 btnListByName.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent evt){
-				if(table1==null){
+				if(table1==null|| table1!=null){
 					table1=new Table1();
 				}
 				table1.setVisible(true);
@@ -58,7 +56,7 @@ class ViewCustomerForm extends JFrame{
 		btnListBySalary.addActionListener(new ActionListener(){
 	   	public void actionPerformed(ActionEvent evt){
 	
-			   if(table2==null){
+			   if(table2==null||table2!=null){
 				table2=new Table2();
 			}
 			table2.setVisible(true);
@@ -77,7 +75,7 @@ class ViewCustomerForm extends JFrame{
 		 btnListByBirthday.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent evt){
 
-				if(table3==null){
+				if(table3==null||table3!=null){
 					table3=new Table3();
 				}
 				table3.setVisible(true);

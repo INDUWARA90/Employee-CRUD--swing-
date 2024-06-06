@@ -45,7 +45,7 @@ class updateCustomer extends JFrame{
 				TxTPhoneNumber.setVisible(true);
 				TxTSalary.setVisible(true);
 				
-			 System.out.print(CustomerMainForm.customerList.searchByNameOrPhoneNumber(Searchbox.getText()));
+			 System.out.print(DBConnection.getInstance().getCustomerList().searchByNameOrPhoneNumber(Searchbox.getText()));
 
 			}
 		});
@@ -65,14 +65,14 @@ class updateCustomer extends JFrame{
 				TxTName.setVisible(true);
 				TxTPhoneNumber.setVisible(true);
 				TxTSalary.setVisible(true);
-				int index=CustomerMainForm.customerList.searchByNameOrPhoneNumber(Searchbox.getText());
+				int index=DBConnection.getInstance().getCustomerList().searchByNameOrPhoneNumber(Searchbox.getText());
 				if (index!=-1) {
-					String Contactid=CustomerMainForm.customerList.get(index).getContactID();
-					String Name=CustomerMainForm.customerList.get(index).getName();
-					String PhoneNumber=CustomerMainForm.customerList.get(index).getPhoneNumber();
-					String Company=CustomerMainForm.customerList.get(index).getCompany();
-					String birthday=CustomerMainForm.customerList.get(index).getBDay();
-					String salary = Double.toString(CustomerMainForm.customerList.get(index).getSalary());
+					String Contactid=DBConnection.getInstance().getCustomerList().get(index).getContactID();
+					String Name=DBConnection.getInstance().getCustomerList().get(index).getName();
+					String PhoneNumber=DBConnection.getInstance().getCustomerList().get(index).getPhoneNumber();
+					String Company=DBConnection.getInstance().getCustomerList().get(index).getCompany();
+					String birthday=DBConnection.getInstance().getCustomerList().get(index).getBDay();
+					String salary = Double.toString(DBConnection.getInstance().getCustomerList().get(index).getSalary());
 					TxTContactID.setText(Contactid);
 					TxTBDay.setText(birthday);
 					TxTCompany.setText(Company);
@@ -142,8 +142,10 @@ class updateCustomer extends JFrame{
 		TxTContactID.setFont(new Font("", 1, 20));
 		JPanel contactIDTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		contactIDTextPanel.add(TxTContactID);
+		
 		TxTContactID.setEditable(false);
 		TxTContactID.setBackground(Color.white);
+
 		TxTContactID.setVisible(false);
 
 		textPanel.add(contactIDTextPanel);
@@ -196,7 +198,8 @@ class updateCustomer extends JFrame{
 		TxTBDay = new JTextField(10);
 		TxTBDay.setFont(new Font("", 1, 20));
 		JPanel BDayTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
+		TxTBDay.setEditable(false);
+		TxTBDay.setBackground(Color.white);
 		TxTBDay.setVisible(false);
 
 		BDayTextPanel.add(TxTBDay);
@@ -215,17 +218,17 @@ class updateCustomer extends JFrame{
 		btnAdd.setFont(new Font("", 1, 20));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				int index=CustomerMainForm.customerList.searchByNameOrPhoneNumber(Searchbox.getText());
+				int index=DBConnection.getInstance().getCustomerList().searchByNameOrPhoneNumber(Searchbox.getText());
 				if (index!=-1) {	
 					String newName=TxTName.getText();
 					String newCompanyName=TxTCompany.getText();
 					String newPhoneNumber=TxTPhoneNumber.getText();
 					double newSalary=Double.parseDouble(TxTSalary.getText());
 		
-					CustomerMainForm.customerList.updateName(index, newName);
-					CustomerMainForm.customerList.updateCompanyName(index,newCompanyName);
-					CustomerMainForm.customerList.updatePhoneNumber(index, newPhoneNumber);
-					CustomerMainForm.customerList.updateSalary(index, newSalary);
+					DBConnection.getInstance().getCustomerList().updateName(index, newName);
+					DBConnection.getInstance().getCustomerList().updateCompanyName(index,newCompanyName);
+					DBConnection.getInstance().getCustomerList().updatePhoneNumber(index, newPhoneNumber);
+					DBConnection.getInstance().getCustomerList().updateSalary(index, newSalary);
 					JFrame Jmassage=new JFrame();
                     JOptionPane.showMessageDialog(Jmassage,"Contact is Updated!");
 					TxTBDay.setText("");

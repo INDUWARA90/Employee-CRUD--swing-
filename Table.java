@@ -2,15 +2,12 @@ import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 
-//===========================Table 01=========================
 class Table1 extends JFrame{
-	private CustomerMainForm customerMainForm;
-	ViewCustomerForm viewCustomerForm;
 	private JTable tblCustomerDetails;
 	private DefaultTableModel dtm;
 	private JLabel titleLabel;
+    Customer Customer;
 	private JButton btnCancel; 
 	Table1(){
 		setSize(600,300);
@@ -18,7 +15,7 @@ class Table1 extends JFrame{
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		
-		titleLabel=new JLabel("List Contact By Name");
+		titleLabel=new JLabel("List Contact By Salary");
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("",1,30));
 		add("North",titleLabel);
@@ -33,16 +30,15 @@ class Table1 extends JFrame{
 		JScrollPane tablePane=new JScrollPane(tblCustomerDetails);
 		
 		add("Center",tablePane);
-	
+		
+
 
     //===========================================================	 
-
+       
+	DBConnection.getInstance().getCustomerList().Sort2();
 		
-		CustomerMainForm.customerList.Sort2();
-
-
-        for(int i=0; i<CustomerMainForm.customerList.size(); i++){
-            Customer customer=CustomerMainForm.customerList.get(i);
+        for(int i=0; i<DBConnection.getInstance().getCustomerList().size(); i++){
+            Customer customer=DBConnection.getInstance().getCustomerList().get(i);
             Object[] rowData={customer.getContactID(), customer.getName(),customer.getPhoneNumber(),customer.getCompany(),customer.getSalary(),customer.getBDay()};
             dtm.addRow(rowData);
         }
@@ -54,6 +50,7 @@ class Table1 extends JFrame{
            public void actionPerformed(ActionEvent evt){
                     Table1.this.dispose();
 					
+               
            }
        });
         btnCancelPanel.add(btnCancel);
@@ -61,6 +58,7 @@ class Table1 extends JFrame{
 
 	}
 }
+
 
 
 
@@ -97,9 +95,9 @@ class Table2 extends JFrame{
 
     //===========================================================	 
        
-		CustomerMainForm.customerList.Sort1();
-        for(int i=0; i<CustomerMainForm.customerList.size(); i++){
-            Customer customer=CustomerMainForm.customerList.get(i);
+	DBConnection.getInstance().getCustomerList().Sort1();
+        for(int i=0; i<DBConnection.getInstance().getCustomerList().size(); i++){
+            Customer customer=DBConnection.getInstance().getCustomerList().get(i);
             Object[] rowData={customer.getContactID(), customer.getName(),customer.getPhoneNumber(),customer.getCompany(),customer.getSalary(),customer.getBDay()};
             dtm.addRow(rowData);
         }
@@ -155,10 +153,10 @@ class Table3 extends JFrame{
 
     //===========================================================	 
        
-		CustomerMainForm.customerList.sortingByBirthday();
+	DBConnection.getInstance().getCustomerList().sortingByBirthday();
 			
-        for(int i=0; i<CustomerMainForm.customerList.size(); i++){
-            Customer customer=CustomerMainForm.customerList.get(i);
+        for(int i=0; i<DBConnection.getInstance().getCustomerList().size(); i++){
+            Customer customer=DBConnection.getInstance().getCustomerList().get(i);
             Object[] rowData={customer.getContactID(), customer.getName(),customer.getPhoneNumber(),customer.getCompany(),customer.getSalary(),customer.getBDay()};
             dtm.addRow(rowData);
         }
