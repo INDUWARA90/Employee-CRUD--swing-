@@ -10,7 +10,7 @@ class CustomerMainForm extends JFrame{
 	private ViewCustomerForm viewCustomerForm;
 	private updateCustomer updateCustomer;
 	private SearchForm SearchForm;
-
+	private DeleteForm DeleteForm;
 	private JButton btnAddCustomer;	
 	private JButton btnSearchCustomer;	
 	private JButton btnDeleteCustomer;	
@@ -53,7 +53,7 @@ class CustomerMainForm extends JFrame{
         JPanel addupdatePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		btnUpdateCustomer.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent evt){
-				if(viewCustomerForm==null){
+				if(updateCustomer==null){
 					updateCustomer=new updateCustomer();
 				}
 				updateCustomer.setVisible(true);
@@ -68,7 +68,7 @@ class CustomerMainForm extends JFrame{
         JPanel addsearchPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		btnSearchCustomer.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent evt){
-				if(viewCustomerForm==null){
+				if(SearchForm==null){
 					SearchForm=new SearchForm();
 				}
 				SearchForm.setVisible(true);
@@ -80,6 +80,14 @@ class CustomerMainForm extends JFrame{
         btnDeleteCustomer = new JButton("Delete Contact");
         btnDeleteCustomer.setFont(new Font("", 1, 15));
         JPanel adddeletePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		btnDeleteCustomer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				if(DeleteForm==null){
+					DeleteForm=new DeleteForm();
+				}
+				DeleteForm.setVisible(true);
+			}
+		});
         adddeletePanel.add(btnDeleteCustomer);
         buttonPanel.add(adddeletePanel);
       // ================================================================

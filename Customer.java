@@ -203,12 +203,6 @@ class customerList {
             }
         }
 
-        for (int i = 0; i < size(); i++) {
-            System.out.printf(
-                    "|     %-5s      |   %-10s   |       %-10s           |      %-10s     |     %10.2f      |     %-10s   |\n",
-                    get(i).getContactID(), get(i).getName(), get(i).getPhoneNumber(), get(i).getCompany(),
-                    get(i).getSalary(), get(i).getBDay());
-        }
     }
 
     // ----------------------------Sorting section(Salary)-------------------------------
@@ -231,12 +225,6 @@ class customerList {
                 temp = temp.next;
             }
         }
-        for (int i = 0; i < size(); i++) {
-            System.out.printf(
-                    "|     %-5s      |   %-10s   |       %-10s           |      %-10s     |     %10.2f      |     %-10s   |\n",
-                    get(i).getContactID(), get(i).getName(), get(i).getPhoneNumber(), get(i).getCompany(),
-                    get(i).getSalary(), get(i).getBDay());
-        }
     }
      // ----------------------------Sorting section(Birth Day)-------------------------------
     public void sortingByBirthday() {
@@ -256,14 +244,6 @@ class customerList {
                 index = index.next;
             }
             temp = temp.next;
-        }
-
-        for (int i = 0; i < size(); i++) {
-
-            System.out.printf(
-                    "|     %-5s      |   %-10s   |       %-10s           |      %-10s     |     %10.2f      |     %-10s   |\n",
-                    get(i).getContactID(), get(i).getName(), get(i).getPhoneNumber(), get(i).getCompany(),
-                    get(i).getSalary(), get(i).getBDay());
         }
 
     }

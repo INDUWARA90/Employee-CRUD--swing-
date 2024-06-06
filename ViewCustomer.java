@@ -4,10 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 class ViewCustomerForm extends JFrame{
-	// private JTable tblCustomerDetails;
-	// private DefaultTableModel dtm;
 
-	private Table table;
+	private Table1 table1;
+	private Table2 table2;
+	private Table3 table3;
 	private JLabel titleLabel;
 	
 	private JButton btnListByName,btnListBySalary,btnListByBirthday,btnCancel; 
@@ -21,17 +21,6 @@ class ViewCustomerForm extends JFrame{
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("",1,30));
 		add("North",titleLabel);
-	
-	//===========================================================
-
-		// String[] columnsName={"Customer Id","Name","Phone Number","Company Name","Salary","Birthday"};
-		// dtm=new DefaultTableModel(columnsName,0);
-		
-		// tblCustomerDetails=new JTable(dtm);
-		
-		// JScrollPane tablePane=new JScrollPane(tblCustomerDetails);
-		
-		// add("Center",tablePane);
 		
 	//===========================================================	 
 		
@@ -42,10 +31,10 @@ class ViewCustomerForm extends JFrame{
 		 btnListByName.setFont(new Font("",1,20));
 		 btnListByName.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent evt){
-				if(table==null){
-					table=new Table();
+				if(table1==null){
+					table1=new Table1();
 				}
-				table.setVisible(true);
+				table1.setVisible(true);
 				ViewCustomerForm.this.dispose();
 				
 			}
@@ -61,10 +50,10 @@ class ViewCustomerForm extends JFrame{
 		btnListBySalary.addActionListener(new ActionListener(){
 	   	public void actionPerformed(ActionEvent evt){
 	
-			   if(table==null){
-				table=new Table();
+			   if(table2==null){
+				table2=new Table2();
 			}
-			table.setVisible(true);
+			table2.setVisible(true);
 			ViewCustomerForm.this.dispose();
 			
 	   	}
@@ -78,10 +67,10 @@ class ViewCustomerForm extends JFrame{
 		 btnListByBirthday.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent evt){
 
-				if(table==null){
-					table=new Table();
+				if(table3==null){
+					table3=new Table3();
 				}
-				table.setVisible(true);
+				table3.setVisible(true);
 				ViewCustomerForm.this.dispose();
 				
 			}
