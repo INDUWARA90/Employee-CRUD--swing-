@@ -21,14 +21,18 @@ class SearchForm extends JFrame{
 
 		//===================Heading Section=========================	
         JPanel HeadingCountainner = new JPanel(new GridLayout(2, 0));
+		HeadingCountainner.setBackground(new Color(66, 188, 245));
 
         JLabel titleLabel = new JLabel("SEARCH CONTACT");
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("", 1, 30));
+		titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 4, 10, 4));
 
         HeadingCountainner.add(titleLabel);
-    
+
         JPanel labelPanel1 = new JPanel(new GridLayout(1, 2));
+		
+		labelPanel1.setBorder(BorderFactory.createEmptyBorder(20, 4, 10, 4));
 
     	// ==============================Search Box========================================
 		Searchbox=new JTextField(15);
@@ -44,6 +48,8 @@ class SearchForm extends JFrame{
 
 		//===================Search Button=========================	
         Serach=new JButton("Search");
+		Serach.setBackground(Color.WHITE);
+		Serach.setFocusable(false);
         JPanel SerachPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         Serach.setFont(new Font("", 1, 20));
 		Serach.addActionListener(new ActionListener() {
@@ -116,31 +122,31 @@ class SearchForm extends JFrame{
 
 		// ===================================Lables========================================
         
-			JPanel labelPanel = new JPanel(new GridLayout(8, 1));
+		JPanel labelPanel = new JPanel(new GridLayout(8, 1));
 
-        ContactID = new JLabel("ContactID");
-        ContactID.setFont(new Font("", 1, 20));
-        labelPanel.add(ContactID);
+		ContactID = new JLabel("	     ContactID");
+		ContactID.setFont(new Font("", 1, 18));
+		labelPanel.add(ContactID);
 
-        Name = new JLabel("Name");
-        Name.setFont(new Font("", 1, 20));
-        labelPanel.add(Name);
+		Name = new JLabel("     Name");
+		Name.setFont(new Font("", 1, 18));
+		labelPanel.add(Name);
 
-        PhoneNumber = new JLabel("Contact Number");
-        PhoneNumber.setFont(new Font("", 1, 20));
-        labelPanel.add(PhoneNumber);
+		PhoneNumber = new JLabel("     Contact Number");
+		PhoneNumber.setFont(new Font("", 1, 18));
+		labelPanel.add(PhoneNumber);
 
-        Company = new JLabel("Company Name");
-        Company.setFont(new Font("", 1, 20));
-        labelPanel.add(Company);
+		Company = new JLabel("     Company Name");
+		Company.setFont(new Font("", 1, 18));
+		labelPanel.add(Company);
 
-        Salary = new JLabel("Salary");
-        Salary.setFont(new Font("", 1, 20));
-        labelPanel.add(Salary);
+		Salary = new JLabel("     Salary");
+		Salary.setFont(new Font("", 1, 18));
+		labelPanel.add(Salary);
 
-        BDay = new JLabel("BirthDay");
-        BDay.setFont(new Font("", 1, 20));
-        labelPanel.add(BDay);
+		BDay = new JLabel("     BirthDay");
+		BDay.setFont(new Font("", 1, 18));
+		labelPanel.add(BDay);
 
         BDay = new JLabel("");
         BDay.setFont(new Font("", 1, 20));
@@ -230,8 +236,11 @@ class SearchForm extends JFrame{
 			JPanel buttonPanel1 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 
 		// ==========================Back To Homepage BUTTON========================================		
-		btnGotoHome = new JButton("Back To HomePage");
+		btnGotoHome = new JButton("Back To HomePage");	
+		btnGotoHome.setBackground(Color.WHITE);
+		btnGotoHome.setFocusable(false);
 		btnGotoHome.setFont(new Font("", 1, 20));
+		btnGotoHome.setPreferredSize(new Dimension(260, 35));
 		btnGotoHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SearchForm.this.dispose();

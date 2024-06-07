@@ -22,14 +22,18 @@ class updateCustomer extends JFrame{
 
 		//===================Heading Section=========================
         JPanel HeadingCountainner = new JPanel(new GridLayout(2, 0));
-
+		HeadingCountainner.setBackground(new Color(66, 188, 245));
         JLabel titleLabel = new JLabel("UPDATE CONTACT");
+		titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 4, 10, 4));
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
-		titleLabel.setFont(new Font("", 1, 30));
+		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
 
         HeadingCountainner.add(titleLabel);
     
+		
         JPanel labelPanel1 = new JPanel(new GridLayout(1, 2));
+
+		labelPanel1.setBorder(BorderFactory.createEmptyBorder(20, 4, 10, 4));
 
     	
 		//===================SearchBox=========================
@@ -55,6 +59,8 @@ class updateCustomer extends JFrame{
 
 		//===================Serach Button=========================
         Serach=new JButton("Search");
+		Serach.setBackground(Color.WHITE);
+		Serach.setFocusable(false);
         JPanel SerachPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         Serach.setFont(new Font("", 1, 20));
 		Serach.addActionListener(new ActionListener() {
@@ -99,35 +105,35 @@ class updateCustomer extends JFrame{
 		// ===================================Lables========================================
 		JPanel labelPanel = new JPanel(new GridLayout(8, 1));
 
-		ContactID = new JLabel("ContactID");
-		ContactID.setFont(new Font("", 1, 20));
+		ContactID = new JLabel("	     ContactID");
+		ContactID.setFont(new Font("", 1, 18));
 		labelPanel.add(ContactID);
 
-		Name = new JLabel("Name");
-		Name.setFont(new Font("", 1, 20));
+		Name = new JLabel("     Name");
+		Name.setFont(new Font("", 1, 18));
 		labelPanel.add(Name);
 
-		PhoneNumber = new JLabel("Contact Number");
-		PhoneNumber.setFont(new Font("", 1, 20));
+		PhoneNumber = new JLabel("     Contact Number");
+		PhoneNumber.setFont(new Font("", 1, 18));
 		labelPanel.add(PhoneNumber);
 
-		Company = new JLabel("Company Name");
-		Company.setFont(new Font("", 1, 20));
+		Company = new JLabel("     Company Name");
+		Company.setFont(new Font("", 1, 18));
 		labelPanel.add(Company);
 
-		Salary = new JLabel("Salary");
-		Salary.setFont(new Font("", 1, 20));
+		Salary = new JLabel("     Salary");
+		Salary.setFont(new Font("", 1, 18));
 		labelPanel.add(Salary);
 
-		BDay = new JLabel("BirthDay");
+		BDay = new JLabel("     BirthDay");
+		BDay.setFont(new Font("", 1, 18));
+		labelPanel.add(BDay);
+		
+		BDay = new JLabel("     ");
 		BDay.setFont(new Font("", 1, 20));
 		labelPanel.add(BDay);
 
-		BDay = new JLabel("");
-		BDay.setFont(new Font("", 1, 20));
-		labelPanel.add(BDay);
-
-		BDay = new JLabel("");
+		BDay = new JLabel("     ");
 		BDay.setFont(new Font("", 1, 20));
 		labelPanel.add(BDay);
 
@@ -216,6 +222,8 @@ class updateCustomer extends JFrame{
 		//===================Update Contact button=========================
 		btnAdd = new JButton("Update Contact");
 		btnAdd.setFont(new Font("", 1, 20));
+		btnAdd.setBackground(Color.WHITE);
+		btnAdd.setFocusable(false);
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				int index=DBConnection.getInstance().getCustomerList().searchByNameOrPhoneNumber(Searchbox.getText());
@@ -254,6 +262,8 @@ class updateCustomer extends JFrame{
 		//===================Cancel button=========================
 		btnCancel = new JButton("Cancel");
 		btnCancel.setFont(new Font("", 1, 20));
+		btnCancel.setBackground(Color.WHITE);
+		btnCancel.setFocusable(false);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				TxTBDay.setText("");
@@ -274,6 +284,9 @@ class updateCustomer extends JFrame{
 		//===================Back To HomePage button=========================
 		btnGotoHome = new JButton("Back To HomePage");
 		btnGotoHome.setFont(new Font("", 1, 20));
+		btnGotoHome.setBackground(Color.WHITE);
+		btnGotoHome.setFocusable(false);
+		btnGotoHome.setPreferredSize(new Dimension(285, 35));
 		btnGotoHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				updateCustomer.this.dispose();

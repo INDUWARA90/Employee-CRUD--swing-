@@ -15,10 +15,17 @@ class Table1 extends JFrame{
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		
-		titleLabel=new JLabel("List Contact By Salary");
+		JPanel HedrePanel=new JPanel(new GridLayout(1,1));
+		HedrePanel.setBackground(new Color(66, 188, 245));
+
+		titleLabel=new JLabel("List Contact By Name");
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("",1,30));
-		add("North",titleLabel);
+		titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 4, 20, 4));
+
+		HedrePanel.add(titleLabel);
+
+		add("North",HedrePanel);
 	
 	//===========================================================
 
@@ -28,7 +35,8 @@ class Table1 extends JFrame{
 		tblCustomerDetails=new JTable(dtm);
 		
 		JScrollPane tablePane=new JScrollPane(tblCustomerDetails);
-		
+		tablePane.setBorder(BorderFactory.createEmptyBorder(7, 4, 10, 4));
+
 		add("Center",tablePane);
 		
 
@@ -44,6 +52,8 @@ class Table1 extends JFrame{
         }
 		
         btnCancel=new JButton("Back To Home");
+		btnCancel.setBackground(Color.WHITE);
+		btnCancel.setFocusable(false);
         JPanel btnCancelPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
         btnCancel.setFont(new Font("",1,15));
         btnCancel.addActionListener(new ActionListener(){
@@ -74,12 +84,18 @@ class Table2 extends JFrame{
 		setTitle("View Customer Form");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
-		
+
+		JPanel HedrePanel=new JPanel(new GridLayout(1,0));
+		HedrePanel.setBackground(new Color(66, 188, 245));
+
 		titleLabel=new JLabel("List Contact By Salary");
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("",1,30));
-		add("North",titleLabel);
-	
+		titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 4, 20, 4));
+
+		HedrePanel.add(titleLabel);
+		
+		add("North",HedrePanel);
 	//===========================================================
 
 		String[] columnsName={"Customer Id","Name","Phone Number","Company Name","Salary","Birthday"};
@@ -88,7 +104,8 @@ class Table2 extends JFrame{
 		tblCustomerDetails=new JTable(dtm);
 		
 		JScrollPane tablePane=new JScrollPane(tblCustomerDetails);
-		
+		tablePane.setBorder(BorderFactory.createEmptyBorder(7, 4, 10, 4));
+
 		add("Center",tablePane);
 		
 
@@ -103,6 +120,8 @@ class Table2 extends JFrame{
         }
 		
         btnCancel=new JButton("Back To Home");
+		btnCancel.setBackground(Color.WHITE);
+		btnCancel.setFocusable(false);
         JPanel btnCancelPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
         btnCancel.setFont(new Font("",1,15));
         btnCancel.addActionListener(new ActionListener(){
@@ -133,11 +152,16 @@ class Table3 extends JFrame{
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		
+		JPanel HedrePanel=new JPanel(new GridLayout(1,0));
+		HedrePanel.setBackground(new Color(66, 188, 245));
 		titleLabel=new JLabel("List Contact By Birthday");
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("",1,30));
-		add("North",titleLabel);
-	
+		titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 4, 20, 4));
+
+		HedrePanel.add(titleLabel);
+		
+		add("North",HedrePanel);
 	//===========================================================
 
 		String[] columnsName={"Customer Id","Name","Phone Number","Company Name","Salary","Birthday"};
@@ -146,7 +170,8 @@ class Table3 extends JFrame{
 		tblCustomerDetails=new JTable(dtm);
 		
 		JScrollPane tablePane=new JScrollPane(tblCustomerDetails);
-		
+		tablePane.setBorder(BorderFactory.createEmptyBorder(7, 4, 10, 4));
+
 		add("Center",tablePane);
 		
 
@@ -162,6 +187,8 @@ class Table3 extends JFrame{
         }
 		
         btnCancel=new JButton("Back To Home");
+		btnCancel.setBackground(Color.WHITE);
+		btnCancel.setFocusable(false);
         JPanel btnCancelPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
         btnCancel.setFont(new Font("",1,15));
         btnCancel.addActionListener(new ActionListener(){

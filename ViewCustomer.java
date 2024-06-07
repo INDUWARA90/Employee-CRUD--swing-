@@ -16,22 +16,34 @@ class ViewCustomerForm extends JFrame{
 	
 	//======================Create Constructer==============================		
 	ViewCustomerForm(){
-		setSize(600,300);
+		setSize(600,380);
 		setTitle("View Customer Form");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		
+		JPanel HedrePanel=new JPanel(new GridLayout(1,0));
+		HedrePanel.setBackground(new Color(66, 188, 245));
+
 		titleLabel=new JLabel("View Customer Form");
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("",1,30));
-		add("North",titleLabel);
+		titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 4, 10, 4));
+		HedrePanel.add(titleLabel);
+
+		add("North",HedrePanel);
+
+		
 		
 	//=================BUTTONS SECTION==============================	 
 		
 		JPanel Container=new JPanel(new GridLayout(3,0));
+		Container.setBorder(BorderFactory.createEmptyBorder(20, 4, 10, 4));
 
 		//======================Create List by Name JButtons==============================	
 		btnListByName=new JButton("List by Name");
+		btnListByName.setPreferredSize(new Dimension(300,35));
+		btnListByName.setBackground(Color.WHITE);
+		btnListByName.setFocusable(false);
 		 JPanel btnListByNamebuttonPanel=new JPanel();
 		 btnListByName.setFont(new Font("",1,20));
 		 btnListByName.addActionListener(new ActionListener(){
@@ -51,6 +63,9 @@ class ViewCustomerForm extends JFrame{
 		
 		//======================Create List by Salary JButtons==============================	
 		btnListBySalary=new JButton("List by Salary");
+		btnListBySalary.setPreferredSize(new Dimension(300,35));
+		btnListBySalary.setBackground(Color.WHITE);
+		btnListBySalary.setFocusable(false);
 		JPanel btnListBySalarybuttonPanel=new JPanel();
 		btnListBySalary.setFont(new Font("",1,20));
 		btnListBySalary.addActionListener(new ActionListener(){
@@ -70,6 +85,9 @@ class ViewCustomerForm extends JFrame{
 
 	   	//======================Create List by Birthday JButtons==============================	
 		 btnListByBirthday=new JButton("List by Birthday");
+		 btnListByBirthday.setPreferredSize(new Dimension(300,35));
+		 btnListByBirthday.setBackground(Color.WHITE);
+		 btnListByBirthday.setFocusable(false);
 		 JPanel btnListByBirthdaybuttonPanel=new JPanel();
 		 btnListByBirthday.setFont(new Font("",1,20));
 		 btnListByBirthday.addActionListener(new ActionListener(){
@@ -91,6 +109,9 @@ class ViewCustomerForm extends JFrame{
 		
 		//======================Create Cancel JButtons==============================	
 		btnCancel=new JButton("Cancel");
+		btnCancel.setBackground(Color.WHITE);
+		btnCancel.setFocusable(false);
+		btnCancel.setSize(new Dimension(80, 50));
 		JPanel btnCancelPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		btnCancel.setFont(new Font("",1,18));
 	   btnCancel.addActionListener(new ActionListener(){

@@ -23,14 +23,18 @@ class DeleteForm extends JFrame{
     setLocationRelativeTo(null);  
 
         JPanel HeadingCountainner = new JPanel(new GridLayout(2, 0));
+		HeadingCountainner.setBackground(new Color(66, 188, 245));
 
         JLabel titleLabel = new JLabel("Delete CONTACT");
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("", 1, 30));
+		titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 4, 10, 4));
+
 
         HeadingCountainner.add(titleLabel);
     
         JPanel labelPanel1 = new JPanel(new GridLayout(1, 2));
+		labelPanel1.setBorder(BorderFactory.createEmptyBorder(20, 4, 10, 4));
 
     	// ================================Search Box======================================
 		Searchbox=new JTextField(15);
@@ -52,6 +56,8 @@ class DeleteForm extends JFrame{
 
 		//======================Search button==============================
         Serach=new JButton("Search");
+		Serach.setBackground(Color.WHITE);
+		Serach.setFocusable(false);
         JPanel SerachPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         Serach.setFont(new Font("", 1, 20));
 		Serach.addActionListener(new ActionListener() {
@@ -117,30 +123,30 @@ class DeleteForm extends JFrame{
 		// ===================================Lables========================================
 		JPanel labelPanel = new JPanel(new GridLayout(8, 1));
 
-		ContactID = new JLabel("ContactID");
-		ContactID.setFont(new Font("", 1, 20));
+		ContactID = new JLabel("	     ContactID");
+		ContactID.setFont(new Font("", 1, 18));
 		labelPanel.add(ContactID);
 
-		Name = new JLabel("Name");
-		Name.setFont(new Font("", 1, 20));
+		Name = new JLabel("     Name");
+		Name.setFont(new Font("", 1, 18));
 		labelPanel.add(Name);
 
-		PhoneNumber = new JLabel("Contact Number");
-		PhoneNumber.setFont(new Font("", 1, 20));
+		PhoneNumber = new JLabel("     Contact Number");
+		PhoneNumber.setFont(new Font("", 1, 18));
 		labelPanel.add(PhoneNumber);
 
-		Company = new JLabel("Company Name");
-		Company.setFont(new Font("", 1, 20));
+		Company = new JLabel("     Company Name");
+		Company.setFont(new Font("", 1, 18));
 		labelPanel.add(Company);
 
-		Salary = new JLabel("Salary");
-		Salary.setFont(new Font("", 1, 20));
+		Salary = new JLabel("     Salary");
+		Salary.setFont(new Font("", 1, 18));
 		labelPanel.add(Salary);
 
-		BDay = new JLabel("BirthDay");
-		BDay.setFont(new Font("", 1, 20));
+		BDay = new JLabel("     BirthDay");
+		BDay.setFont(new Font("", 1, 18));
 		labelPanel.add(BDay);
-
+		
 		BDay = new JLabel("");
 		BDay.setFont(new Font("", 1, 20));
 		labelPanel.add(BDay);
@@ -230,6 +236,8 @@ class DeleteForm extends JFrame{
 
 		//======================Delete Buttons==============================	
 		btndelete = new JButton("Delete Contact");
+		btndelete.setBackground(Color.WHITE);
+		btndelete.setFocusable(false);
 		btndelete.setFont(new Font("", 1, 20));
 		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -261,6 +269,8 @@ class DeleteForm extends JFrame{
 
 		//======================Cancel Buttons==============================	
 		btnCancel = new JButton("Cancel");
+		btnCancel.setBackground(Color.WHITE);
+		btnCancel.setFocusable(false);
 		btnCancel.setFont(new Font("", 1, 20));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -281,6 +291,9 @@ class DeleteForm extends JFrame{
 		//======================Back To Home Buttons==============================	
 		btnGotoHome = new JButton("Back To HomePage");
 		btnGotoHome.setFont(new Font("", 1, 20));
+		btnGotoHome.setBackground(Color.WHITE);
+		btnGotoHome.setFocusable(false);
+		btnGotoHome.setPreferredSize(new Dimension(280, 35));
 		btnGotoHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				DeleteForm.this.dispose();

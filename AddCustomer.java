@@ -1,11 +1,13 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.*;
 import java.awt.event.*;
 
 class AddCustomerForm extends JFrame {
 	
 	// ===================Create lable=====================
-	private JLabel titleLabel;
+
 	private JLabel ContactID, Name, PhoneNumber, Company, Salary, BDay;
 
 	// ===================Create buttons=====================
@@ -14,27 +16,30 @@ class AddCustomerForm extends JFrame {
 
 	// ===================Constructer buttons=====================
 	AddCustomerForm() {
-		setSize(500, 400);
+		setSize(500, 450);
 		setTitle("Add Customer Form");
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setLocationRelativeTo(null);
 
 		//===================Heading Section=========================
         JPanel HeadingCountainner = new JPanel(new GridLayout(2, 0));
+		JPanel ContactidCountainner = new JPanel(new GridLayout(1, 0));
+		HeadingCountainner.setBackground(new Color(66, 188, 245));
 
+		
         JLabel titleLabel = new JLabel("ADD CONTACT");
+		titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 4, 10, 4));
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
-		titleLabel.setFont(new Font("", 1, 30));
-
-			
+		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
+		HeadingCountainner.add(titleLabel);
 		
 		
-		ContactID = new JLabel("Contact-ID-"+DBConnection.getInstance().getCustomerList().createContactID());
-		ContactID.setFont(new Font("", 1, 20));
+		ContactID = new JLabel("   Contact-ID-"+DBConnection.getInstance().getCustomerList().createContactID());
+		ContactID.setFont(new Font("Tahoma", Font.BOLD, 20));
 		add(ContactID);
         
-		HeadingCountainner.add(titleLabel);
-		HeadingCountainner.add(ContactID);
+		ContactidCountainner.add(ContactID);
+		HeadingCountainner.add(ContactidCountainner);
 		add("North",HeadingCountainner);
 		
      
@@ -43,31 +48,31 @@ class AddCustomerForm extends JFrame {
 		JPanel labelPanel = new JPanel(new GridLayout(7, 1));
 
 
-		Name = new JLabel("Name");
-		Name.setFont(new Font("", 1, 20));
+		Name = new JLabel("     Name");
+		Name.setFont(new Font("", 1, 18));
 		labelPanel.add(Name);
 
-		PhoneNumber = new JLabel("Contact Number");
-		PhoneNumber.setFont(new Font("", 1, 20));
+		PhoneNumber = new JLabel("     Contact Number");
+		PhoneNumber.setFont(new Font("", 1, 18));
 		labelPanel.add(PhoneNumber);
 
-		Company = new JLabel("Company Name");
-		Company.setFont(new Font("", 1, 20));
+		Company = new JLabel("     Company Name");
+		Company.setFont(new Font("", 1, 18));
 		labelPanel.add(Company);
 
-		Salary = new JLabel("Salary");
-		Salary.setFont(new Font("", 1, 20));
+		Salary = new JLabel("     Salary");
+		Salary.setFont(new Font("", 1, 18));
 		labelPanel.add(Salary);
 
-		BDay = new JLabel("BirthDay");
-		BDay.setFont(new Font("", 1, 20));
+		BDay = new JLabel("     BirthDay");
+		BDay.setFont(new Font("", 1, 18));
 		labelPanel.add(BDay);
 		
-		BDay = new JLabel("");
+		BDay = new JLabel("     ");
 		BDay.setFont(new Font("", 1, 20));
 		labelPanel.add(BDay);
 
-		BDay = new JLabel("");
+		BDay = new JLabel("     ");
 		BDay.setFont(new Font("", 1, 20));
 		labelPanel.add(BDay);
 
@@ -130,6 +135,8 @@ class AddCustomerForm extends JFrame {
 		// ===================ADD CONTACT BUTTON======================================		
 		btnAdd = new JButton("ADD Contact");
 		btnAdd.setFont(new Font("", 1, 20));
+		btnAdd.setFocusable(false);
+		btnAdd.setBackground(Color.WHITE);
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (DBConnection.getInstance().getCustomerList().createContactID().equals("") ||TxTName.getText().equals("") ||TxTPhoneNumber.getText().equals("") ||TxTCompany.getText().equals("") ||TxTSalary.getText().equals("") ||TxTBDay.getText().equals("") ) {
@@ -192,6 +199,9 @@ class AddCustomerForm extends JFrame {
 		// ===================CANCEL BUTTON======================================
 		btnCancel = new JButton("Cancel");
 		btnCancel.setFont(new Font("", 1, 20));
+		btnCancel.setBackground(Color.WHITE);
+		btnCancel.setFocusable(false);
+
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				TxTBDay.setText("");
@@ -209,6 +219,9 @@ class AddCustomerForm extends JFrame {
 		// ===================Back To HomePage BUTTON======================================
 		btnGotoHome = new JButton("Back To HomePage");
 		btnGotoHome.setFont(new Font("", 1, 20));
+		btnGotoHome.setBackground(Color.WHITE);
+		btnGotoHome.setFocusable(false);
+		btnGotoHome.setPreferredSize(new Dimension(260, 35));
 		btnGotoHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				AddCustomerForm.this.dispose();
