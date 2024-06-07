@@ -56,6 +56,7 @@ class Table1 extends JFrame{
 		btnCancel.setFocusable(false);
         JPanel btnCancelPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
         btnCancel.setFont(new Font("",1,15));
+
         btnCancel.addActionListener(new ActionListener(){
            public void actionPerformed(ActionEvent evt){
                     Table1.this.dispose();
@@ -124,6 +125,7 @@ class Table2 extends JFrame{
 		btnCancel.setFocusable(false);
         JPanel btnCancelPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
         btnCancel.setFont(new Font("",1,15));
+
         btnCancel.addActionListener(new ActionListener(){
            public void actionPerformed(ActionEvent evt){
                     Table2.this.dispose();
@@ -191,6 +193,7 @@ class Table3 extends JFrame{
 		btnCancel.setFocusable(false);
         JPanel btnCancelPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
         btnCancel.setFont(new Font("",1,15));
+		
         btnCancel.addActionListener(new ActionListener(){
            public void actionPerformed(ActionEvent evt){
                     Table3.this.dispose();

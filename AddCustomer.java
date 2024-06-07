@@ -33,8 +33,8 @@ class AddCustomerForm extends JFrame {
 		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
 		HeadingCountainner.add(titleLabel);
 		
-		
-		ContactID = new JLabel("   Contact-ID-"+DBConnection.getInstance().getCustomerList().createContactID());
+		String S1=DBConnection.getInstance().getCustomerList().createContactID();
+		ContactID = new JLabel("   Contact-ID-"+S1);
 		ContactID.setFont(new Font("Tahoma", Font.BOLD, 20));
 		add(ContactID);
         
@@ -184,8 +184,10 @@ class AddCustomerForm extends JFrame {
 						TxTName.setText("");
 						TxTPhoneNumber.setText("");
 						TxTSalary.setText("");
-					
-						System.out.println(DBConnection.getInstance().getCustomerList().createContactID());
+
+						ContactID.setText("   Contact-ID-"+DBConnection.getInstance().getCustomerList().createContactID());
+						
+						
 
 					}
 					
@@ -230,6 +232,8 @@ class AddCustomerForm extends JFrame {
 				TxTName.setText("");
 				TxTPhoneNumber.setText("");
 				TxTSalary.setText("");
+				
+				
 			}
 		});
 		buttonPanel1.add(btnGotoHome);

@@ -38,11 +38,7 @@ class SearchForm extends JFrame{
 		Searchbox=new JTextField(15);
         Searchbox.setFont(new Font("", 1, 20));
 		JPanel SerachboxPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        Searchbox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				
-			}
-		});
+    
 		SerachboxPanel.add(Searchbox);
 		labelPanel1.add(SerachboxPanel);
 
@@ -62,12 +58,14 @@ class SearchForm extends JFrame{
                     TxTName.setVisible(true);
                     TxTPhoneNumber.setVisible(true);
                     TxTSalary.setVisible(true);
+
 					String Contactid=DBConnection.getInstance().getCustomerList().get(index).getContactID();
 					String Name=DBConnection.getInstance().getCustomerList().get(index).getName();
 					String PhoneNumber=DBConnection.getInstance().getCustomerList().get(index).getPhoneNumber();
 					String Company=DBConnection.getInstance().getCustomerList().get(index).getCompany();
 					String birthday=DBConnection.getInstance().getCustomerList().get(index).getBDay();
 					String salary = Double.toString(DBConnection.getInstance().getCustomerList().get(index).getSalary());
+
 					TxTContactID.setText(Contactid);
 					TxTBDay.setText(birthday);
 					TxTCompany.setText(Company);
@@ -75,7 +73,8 @@ class SearchForm extends JFrame{
 					TxTPhoneNumber.setText(PhoneNumber);
 					TxTSalary.setText(salary);
 					
-					
+					setSize(600, 550);
+
 					TxTContactID.setEditable(false);
 					TxTContactID.setBackground(Color.white);
 
@@ -166,10 +165,9 @@ class SearchForm extends JFrame{
 		TxTContactID = new JTextField(6);
 		TxTContactID.setFont(new Font("", 1, 20));
 		JPanel contactIDTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
 		contactIDTextPanel.add(TxTContactID);
-
 		TxTContactID.setVisible(false);
+
 		textPanel.add(contactIDTextPanel);
 
 
@@ -177,10 +175,9 @@ class SearchForm extends JFrame{
 		TxTName = new JTextField(15);
 		TxTName.setFont(new Font("", 1, 20));
 		JPanel nameTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
 		TxTName.setVisible(false);
-
 		nameTextPanel.add(TxTName);
+
 		textPanel.add(nameTextPanel);
 
 
@@ -188,10 +185,9 @@ class SearchForm extends JFrame{
 		TxTPhoneNumber = new JTextField(15);
 		TxTPhoneNumber.setFont(new Font("", 1, 20));
 		JPanel phonenumberTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		
 		TxTPhoneNumber.setVisible(false);
-
 		phonenumberTextPanel.add(TxTPhoneNumber);
+
 		textPanel.add(phonenumberTextPanel);
 
 
@@ -199,10 +195,9 @@ class SearchForm extends JFrame{
 		TxTCompany = new JTextField(15);
 		TxTCompany.setFont(new Font("", 1, 20));
 		JPanel addressTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
 		TxTCompany.setVisible(false);
-
 		addressTextPanel.add(TxTCompany);
+
 		textPanel.add(addressTextPanel);
 
 
@@ -210,10 +205,9 @@ class SearchForm extends JFrame{
 		TxTSalary = new JTextField(10);
 		TxTSalary.setFont(new Font("", 1, 20));
 		JPanel salaryTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
 		TxTSalary.setVisible(false);
-
 		salaryTextPanel.add(TxTSalary);
+
 		textPanel.add(salaryTextPanel);
 		
 		
@@ -221,10 +215,9 @@ class SearchForm extends JFrame{
 		TxTBDay = new JTextField(10);
 		TxTBDay.setFont(new Font("", 1, 20));
 		JPanel BDayTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
 		TxTBDay.setVisible(false);
-
 		BDayTextPanel.add(TxTBDay);
+
 		textPanel.add(BDayTextPanel);
 
 
@@ -244,6 +237,7 @@ class SearchForm extends JFrame{
 		btnGotoHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				SearchForm.this.dispose();
+
 				TxTBDay.setText("");
 				TxTCompany.setText("");
 				TxTContactID.setText("");
@@ -252,12 +246,12 @@ class SearchForm extends JFrame{
 				TxTSalary.setText("");
 				Searchbox.setText("");
 
-					TxTBDay.setVisible(false);
-                    TxTCompany.setVisible(false);
-                    TxTContactID.setVisible(false);
-                    TxTName.setVisible(false);
-                    TxTPhoneNumber.setVisible(false);
-                    TxTSalary.setVisible(false);
+				TxTBDay.setVisible(false);
+				TxTCompany.setVisible(false);
+				TxTContactID.setVisible(false);
+				TxTName.setVisible(false);
+				TxTPhoneNumber.setVisible(false);
+				TxTSalary.setVisible(false);
 
 
 			}

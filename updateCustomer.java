@@ -20,9 +20,12 @@ class updateCustomer extends JFrame{
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     setLocationRelativeTo(null);  
 
+
+	
 		//===================Heading Section=========================
         JPanel HeadingCountainner = new JPanel(new GridLayout(2, 0));
 		HeadingCountainner.setBackground(new Color(66, 188, 245));
+
         JLabel titleLabel = new JLabel("UPDATE CONTACT");
 		titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 4, 10, 4));
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -49,7 +52,7 @@ class updateCustomer extends JFrame{
 				TxTPhoneNumber.setVisible(true);
 				TxTSalary.setVisible(true);
 				
-			 System.out.print(DBConnection.getInstance().getCustomerList().searchByNameOrPhoneNumber(Searchbox.getText()));
+		
 
 			}
 		});
@@ -85,6 +88,8 @@ class updateCustomer extends JFrame{
 					TxTName.setText(Name);
 					TxTPhoneNumber.setText(PhoneNumber);
 					TxTSalary.setText(salary);
+
+					setSize(600, 600);
 
 				}else{
 					JFrame Jmassage=new JFrame();
@@ -148,10 +153,8 @@ class updateCustomer extends JFrame{
 		TxTContactID.setFont(new Font("", 1, 20));
 		JPanel contactIDTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		contactIDTextPanel.add(TxTContactID);
-		
 		TxTContactID.setEditable(false);
 		TxTContactID.setBackground(Color.white);
-
 		TxTContactID.setVisible(false);
 
 		textPanel.add(contactIDTextPanel);
@@ -161,20 +164,18 @@ class updateCustomer extends JFrame{
 		TxTName = new JTextField(15);
 		TxTName.setFont(new Font("", 1, 20));
 		JPanel nameTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
 		TxTName.setVisible(false);
-
 		nameTextPanel.add(TxTName);
+
 		textPanel.add(nameTextPanel);
 
 		//===================Phone Number TextF=========================
 		TxTPhoneNumber = new JTextField(15);
 		TxTPhoneNumber.setFont(new Font("", 1, 20));
 		JPanel phonenumberTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		
 		TxTPhoneNumber.setVisible(false);
-
 		phonenumberTextPanel.add(TxTPhoneNumber);
+
 		textPanel.add(phonenumberTextPanel);
 		
 		
@@ -182,21 +183,19 @@ class updateCustomer extends JFrame{
 		TxTCompany = new JTextField(15);
 		TxTCompany.setFont(new Font("", 1, 20));
 		JPanel addressTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
 		TxTCompany.setVisible(false);
-
 		addressTextPanel.add(TxTCompany);
+		
 		textPanel.add(addressTextPanel);
-
+	
 
 		//===================Salary TextF=========================
 		TxTSalary = new JTextField(10);
 		TxTSalary.setFont(new Font("", 1, 20));
 		JPanel salaryTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
 		TxTSalary.setVisible(false);
-
 		salaryTextPanel.add(TxTSalary);
+
 		textPanel.add(salaryTextPanel);
 
 
@@ -207,13 +206,12 @@ class updateCustomer extends JFrame{
 		TxTBDay.setEditable(false);
 		TxTBDay.setBackground(Color.white);
 		TxTBDay.setVisible(false);
-
 		BDayTextPanel.add(TxTBDay);
+
 		textPanel.add(BDayTextPanel);
 
 
 			add("Center", textPanel);
-
 
 
 		// ===================================Buttons========================================
@@ -237,8 +235,10 @@ class updateCustomer extends JFrame{
 					DBConnection.getInstance().getCustomerList().updateCompanyName(index,newCompanyName);
 					DBConnection.getInstance().getCustomerList().updatePhoneNumber(index, newPhoneNumber);
 					DBConnection.getInstance().getCustomerList().updateSalary(index, newSalary);
+
 					JFrame Jmassage=new JFrame();
                     JOptionPane.showMessageDialog(Jmassage,"Contact is Updated!");
+
 					TxTBDay.setText("");
 					TxTCompany.setText("");
 					TxTContactID.setText("");
@@ -248,7 +248,7 @@ class updateCustomer extends JFrame{
 					Searchbox.setText("");
 				}else{
 					JFrame Jmassage=new JFrame();
-                    JOptionPane.showMessageDialog(Jmassage,"Contact is Updated Fail Try Again!");   
+                    JOptionPane.showMessageDialog(Jmassage,"Something Wrong Try Again!");   
 					
 				}
 				
@@ -256,6 +256,7 @@ class updateCustomer extends JFrame{
 				
 			}
 		});
+
 		buttonPanel.add(btnAdd);
 
 
@@ -280,7 +281,6 @@ class updateCustomer extends JFrame{
 		
 		JPanel buttonPanel1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 	
-
 		//===================Back To HomePage button=========================
 		btnGotoHome = new JButton("Back To HomePage");
 		btnGotoHome.setFont(new Font("", 1, 20));
@@ -296,7 +296,7 @@ class updateCustomer extends JFrame{
 				TxTName.setText("");
 				TxTPhoneNumber.setText("");
 				TxTSalary.setText("");
-
+				Searchbox.setText("");
 				
 				TxTBDay.setVisible(false);
 				TxTCompany.setVisible(false);

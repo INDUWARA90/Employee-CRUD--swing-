@@ -1,6 +1,10 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 class CustomerMainForm extends JFrame{
 	
 	
@@ -21,16 +25,17 @@ class CustomerMainForm extends JFrame{
 		setSize(500,500);
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setLocationRelativeTo(null);
+
+		setBackground(Color.blue);
+
 		
-        
-
-
 		// ===================Heading=====================
 		JPanel HedrePanel=new JPanel(new GridLayout(3, 1));
 		
 		JLabel JHEading = new JLabel("Home Page", JLabel.CENTER);
 		JHEading.setFont(new Font("Tahoma", Font.BOLD, 30));
 		HedrePanel.add(JHEading);
+
 
 		JLabel label = new JLabel("____________________",JLabel.CENTER);
 		label.setForeground(new Color(95, 99, 99));

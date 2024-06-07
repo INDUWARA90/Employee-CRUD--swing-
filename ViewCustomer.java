@@ -68,6 +68,7 @@ class ViewCustomerForm extends JFrame{
 		btnListBySalary.setFocusable(false);
 		JPanel btnListBySalarybuttonPanel=new JPanel();
 		btnListBySalary.setFont(new Font("",1,20));
+
 		btnListBySalary.addActionListener(new ActionListener(){
 	   	public void actionPerformed(ActionEvent evt){
 	
@@ -90,6 +91,7 @@ class ViewCustomerForm extends JFrame{
 		 btnListByBirthday.setFocusable(false);
 		 JPanel btnListByBirthdaybuttonPanel=new JPanel();
 		 btnListByBirthday.setFont(new Font("",1,20));
+
 		 btnListByBirthday.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent evt){
 
@@ -114,7 +116,8 @@ class ViewCustomerForm extends JFrame{
 		btnCancel.setSize(new Dimension(80, 50));
 		JPanel btnCancelPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		btnCancel.setFont(new Font("",1,18));
-	   btnCancel.addActionListener(new ActionListener(){
+
+	    btnCancel.addActionListener(new ActionListener(){
 	   	public void actionPerformed(ActionEvent evt){
 	   		ViewCustomerForm.this.dispose();
 	   	}
@@ -124,6 +127,6 @@ class ViewCustomerForm extends JFrame{
 
 	}
 
-	//=====================Method Remove All Recodes=========================
+
 
 }
