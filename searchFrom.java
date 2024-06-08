@@ -14,8 +14,8 @@ class SearchForm extends JFrame{
     
 	//===================Constructer=========================	
 	SearchForm(){
-    setSize(600, 500);
-    setTitle("Search Customer Form");
+    setSize(600, 550);
+    setTitle("Search Employee Form");
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     setLocationRelativeTo(null);  
 
@@ -73,7 +73,7 @@ class SearchForm extends JFrame{
 					TxTPhoneNumber.setText(PhoneNumber);
 					TxTSalary.setText(salary);
 					
-					setSize(600, 550);
+					setSize(600, 600);
 
 					TxTContactID.setEditable(false);
 					TxTContactID.setBackground(Color.white);

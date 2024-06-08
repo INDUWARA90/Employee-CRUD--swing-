@@ -16,7 +16,7 @@ class updateCustomer extends JFrame{
 	//===================Constructer =========================
     updateCustomer(){
     setSize(600, 550);
-    setTitle("Update Customer Form");
+    setTitle("Update Employee Form");
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     setLocationRelativeTo(null);  
 
@@ -246,6 +246,14 @@ class updateCustomer extends JFrame{
 					TxTPhoneNumber.setText("");
 					TxTSalary.setText("");
 					Searchbox.setText("");
+
+					
+					TxTBDay.setVisible(false);
+					TxTCompany.setVisible(false);
+					TxTContactID.setVisible(false);
+					TxTName.setVisible(false);
+					TxTPhoneNumber.setVisible(false);
+					TxTSalary.setVisible(false);
 				}else{
 					JFrame Jmassage=new JFrame();
                     JOptionPane.showMessageDialog(Jmassage,"Something Wrong Try Again!");   
@@ -274,6 +282,14 @@ class updateCustomer extends JFrame{
 				TxTPhoneNumber.setText("");
 				TxTSalary.setText("");
 				Searchbox.setText("");
+
+				
+				TxTBDay.setVisible(false);
+				TxTCompany.setVisible(false);
+				TxTContactID.setVisible(false);
+				TxTName.setVisible(false);
+				TxTPhoneNumber.setVisible(false);
+				TxTSalary.setVisible(false);
 			}
 		});
 		buttonPanel.add(btnCancel);

@@ -1,10 +1,6 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 class CustomerMainForm extends JFrame{
 	
 	
@@ -21,23 +17,26 @@ class CustomerMainForm extends JFrame{
 	
 	//=============Constructer========================
 	CustomerMainForm(){
-		setTitle("Customer Mangement System");
-		setSize(500,500);
+		setTitle("Employee Mangement System");
+		setSize(850,640);
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setLocationRelativeTo(null);
 
-		setBackground(Color.blue);
-
+		//======================================ADD Image=============================
+		ImageIcon image1 = new ImageIcon("D:\\ICET\\personal project\\Customer Mangement System(JAVA)\\Friend.png");
+        add("West",new JLabel(image1));
+      
 		
 		// ===================Heading=====================
 		JPanel HedrePanel=new JPanel(new GridLayout(3, 1));
 		
-		JLabel JHEading = new JLabel("Home Page", JLabel.CENTER);
-		JHEading.setFont(new Font("Tahoma", Font.BOLD, 30));
+		JLabel JHEading = new JLabel(" Home Page", JLabel.CENTER);
+		JHEading.setBorder(BorderFactory.createEmptyBorder(10, 4, 0, 4));
+		JHEading.setFont(new Font("Courier", Font.BOLD, 30)); 
 		HedrePanel.add(JHEading);
 
 
-		JLabel label = new JLabel("____________________",JLabel.CENTER);
+		JLabel label = new JLabel("   __________________________",JLabel.CENTER);
 		label.setForeground(new Color(95, 99, 99));
 		label.setFont(new Font("Tahoma", 1, 30));
 		

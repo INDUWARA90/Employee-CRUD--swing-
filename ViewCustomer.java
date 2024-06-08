@@ -17,14 +17,14 @@ class ViewCustomerForm extends JFrame{
 	//======================Create Constructer==============================		
 	ViewCustomerForm(){
 		setSize(600,380);
-		setTitle("View Customer Form");
+		setTitle("View Employee Form");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		
 		JPanel HedrePanel=new JPanel(new GridLayout(1,0));
 		HedrePanel.setBackground(new Color(66, 188, 245));
 
-		titleLabel=new JLabel("View Customer Form");
+		titleLabel=new JLabel("View Employee Form");
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titleLabel.setFont(new Font("",1,30));
 		titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 4, 10, 4));

@@ -11,7 +11,7 @@ class Table1 extends JFrame{
 	private JButton btnCancel; 
 	Table1(){
 		setSize(600,300);
-		setTitle("View Customer Form");
+		setTitle("View FRIEND Form");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		

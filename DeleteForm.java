@@ -18,7 +18,7 @@ class DeleteForm extends JFrame{
 	//======================Constructer==============================
 	DeleteForm(){
     setSize(600, 550);
-    setTitle("Update Customer Form");
+    setTitle("Update Employee Form");
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     setLocationRelativeTo(null);  
 
@@ -252,9 +252,19 @@ class DeleteForm extends JFrame{
 					TxTPhoneNumber.setText("");
 					TxTSalary.setText("");
 					Searchbox.setText("");
+
+					TxTBDay.setVisible(false);
+					TxTCompany.setVisible(false);
+					TxTContactID.setVisible(false);
+					TxTName.setVisible(false);
+					TxTPhoneNumber.setVisible(false);
+					TxTSalary.setVisible(false);
+
+					setSize(600, 530);
+					
 				}else{
 					JFrame Jmassage=new JFrame();
-					JOptionPane.showMessageDialog(Jmassage,"Somthing Wrong Try Again!");  
+					JOptionPane.showMessageDialog(Jmassage,"Something Wrong Try Again!");  
 				}
 				
 			}
@@ -276,6 +286,14 @@ class DeleteForm extends JFrame{
 				TxTPhoneNumber.setText("");
 				TxTSalary.setText("");
 				Searchbox.setText("");
+
+				
+				TxTBDay.setVisible(false);
+				TxTCompany.setVisible(false);
+				TxTContactID.setVisible(false);
+				TxTName.setVisible(false);
+				TxTPhoneNumber.setVisible(false);
+				TxTSalary.setVisible(false);
 
 			}
 		});

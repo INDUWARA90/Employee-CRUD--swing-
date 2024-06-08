@@ -17,7 +17,7 @@ class AddCustomerForm extends JFrame {
 	// ===================Constructer buttons=====================
 	AddCustomerForm() {
 		setSize(500, 450);
-		setTitle("Add Customer Form");
+		setTitle("Add Employee Form");
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setLocationRelativeTo(null);
 
