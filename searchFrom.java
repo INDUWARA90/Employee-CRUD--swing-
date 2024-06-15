@@ -58,7 +58,7 @@ class SearchForm extends JFrame{
                     TxTName.setVisible(true);
                     TxTPhoneNumber.setVisible(true);
                     TxTSalary.setVisible(true);
-
+				
 					String Contactid=DBConnection.getInstance().getCustomerList().get(index).getContactID();
 					String Name=DBConnection.getInstance().getCustomerList().get(index).getName();
 					String PhoneNumber=DBConnection.getInstance().getCustomerList().get(index).getPhoneNumber();

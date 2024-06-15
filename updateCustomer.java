@@ -74,6 +74,8 @@ class updateCustomer extends JFrame{
 				TxTName.setVisible(true);
 				TxTPhoneNumber.setVisible(true);
 				TxTSalary.setVisible(true);
+			
+				
 				int index=DBConnection.getInstance().getCustomerList().searchByNameOrPhoneNumber(Searchbox.getText());
 				if (index!=-1) {
 					String Contactid=DBConnection.getInstance().getCustomerList().get(index).getContactID();
@@ -224,21 +226,33 @@ class updateCustomer extends JFrame{
 		btnAdd.setFocusable(false);
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				JFrame massage=new JFrame();
 				int index=DBConnection.getInstance().getCustomerList().searchByNameOrPhoneNumber(Searchbox.getText());
 				if (index!=-1) {	
 					String newName=TxTName.getText();
 					String newCompanyName=TxTCompany.getText();
-					String newPhoneNumber=TxTPhoneNumber.getText();
-					double newSalary=Double.parseDouble(TxTSalary.getText());
-		
-					DBConnection.getInstance().getCustomerList().updateName(index, newName);
-					DBConnection.getInstance().getCustomerList().updateCompanyName(index,newCompanyName);
-					DBConnection.getInstance().getCustomerList().updatePhoneNumber(index, newPhoneNumber);
-					DBConnection.getInstance().getCustomerList().updateSalary(index, newSalary);
+					String newPhoneNumber="";
+					double newSalary=0;
+
+					if (isValidSalary(Double.parseDouble(TxTSalary.getText()))) {
+						newSalary=Double.parseDouble(TxTSalary.getText());
+
+					}else{JOptionPane.showMessageDialog(massage,"Please Enter Correct Salary...");}
+
+
+					//===============================Validate Phone Number=====================================
+					if (validphonenumber(TxTPhoneNumber.getText())) {
+						newPhoneNumber = TxTPhoneNumber.getText();
+					}else{JOptionPane.showMessageDialog(massage,"Please Enter Correct PhoneNumber...");}
+
+					if (validphonenumber(TxTPhoneNumber.getText()) && isValidSalary(Double.parseDouble(TxTSalary.getText())) && newName!=null && DBConnection.getInstance().getCustomerList().createContactID()!=null && newCompanyName!= null ) {
+						DBConnection.getInstance().getCustomerList().updateName(index, newName);
+						DBConnection.getInstance().getCustomerList().updateCompanyName(index,newCompanyName);
+						DBConnection.getInstance().getCustomerList().updatePhoneNumber(index, newPhoneNumber);
+						DBConnection.getInstance().getCustomerList().updateSalary(index, newSalary);
 
 					JFrame Jmassage=new JFrame();
                     JOptionPane.showMessageDialog(Jmassage,"Contact is Updated!");
-
 					TxTBDay.setText("");
 					TxTCompany.setText("");
 					TxTContactID.setText("");
@@ -254,6 +268,8 @@ class updateCustomer extends JFrame{
 					TxTName.setVisible(false);
 					TxTPhoneNumber.setVisible(false);
 					TxTSalary.setVisible(false);
+				}
+		
 				}else{
 					JFrame Jmassage=new JFrame();
                     JOptionPane.showMessageDialog(Jmassage,"Something Wrong Try Again!");   
@@ -329,4 +345,31 @@ class updateCustomer extends JFrame{
 
 
     }
+	public static boolean validphonenumber(String p1) {
+		boolean isValid = true;
+
+		for (int i = 1; i < p1.length(); i++) {
+			if (!(p1.charAt(i) == '0' || p1.charAt(i) == '1' || p1.charAt(i) == '2' || p1.charAt(i) == '3'
+					|| p1.charAt(i) == '4' || p1.charAt(i) == '5' || p1.charAt(i) == '6' || p1.charAt(i) == '7'
+					|| p1.charAt(i) == '8' || p1.charAt(i) == '9')) {
+				isValid = false;
+			}
+		}
+		if (p1.length() > 10) {
+			isValid = false;
+		}
+		if (p1.length() < 10) {
+			isValid = false;
+		}
+		if (p1.charAt(0) != '0') {
+			isValid = false;
+		}
+		return isValid;
+	}
+
+	// --------------------------to valid Salary--------------------------------
+	public static boolean isValidSalary(double salary){
+		return salary>0;
+	}
+	
 }

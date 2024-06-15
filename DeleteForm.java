@@ -68,6 +68,8 @@ class DeleteForm extends JFrame{
 				TxTName.setVisible(true);
 				TxTPhoneNumber.setVisible(true);
 				TxTSalary.setVisible(true);
+			
+				
 				int index=DBConnection.getInstance().getCustomerList().searchByNameOrPhoneNumber(Searchbox.getText());
 				if (index!=-1) {
 					String Contactid=DBConnection.getInstance().getCustomerList().get(index).getContactID();
