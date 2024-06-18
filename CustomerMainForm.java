@@ -167,9 +167,6 @@ class CustomerMainForm extends JFrame{
 		
 		
 
-	// ===================MAIN METHOD=====================	
-	public static void main(String args[]){
-			new CustomerMainForm().setVisible(true);
 	
-	}
+	
 }

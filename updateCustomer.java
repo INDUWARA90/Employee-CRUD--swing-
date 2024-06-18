@@ -95,7 +95,7 @@ class updateCustomer extends JFrame{
 
 				}else{
 					JFrame Jmassage=new JFrame();
-					JOptionPane.showMessageDialog(Jmassage,"Contact is not in DataBase....");   
+					JOptionPane.showMessageDialog(Jmassage,"Contact is not in DataBase....");  
 				}
 
 			}
